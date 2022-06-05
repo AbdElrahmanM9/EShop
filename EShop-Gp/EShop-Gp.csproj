@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>aspnet-EShop_Gp-824DAC81-FF8E-4F51-936F-59C44E1989CB</UserSecretsId>
+    <RootNamespace>EShop_Gp</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Home\_Accessories.cshtml" />
+    <Content Remove="Views\Home\_Cookers.cshtml" />
+    <Content Remove="Views\Home\_Heaters.cshtml" />
+    <Content Remove="Views\Home\_Laptops.cshtml" />
+    <Content Remove="Views\Home\_Phones.cshtml" />
+    <Content Remove="Views\Home\_Privacy.cshtml" />
+    <Content Remove="Views\Home\_Refrigerators.cshtml" />
+    <Content Remove="Views\Home\_Tvs.cshtml" />
+    <Content Remove="Views\Home\_WashingMachines.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.22" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.22" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.22" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.22" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.22" />
+    <PackageReference Include="toastr" Version="2.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Identity\Views\" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,90 @@
+﻿@model EShop_Gp.ViewModel.UserDataViewModel
+
+<form>
+    <div class="form-group">
+        <label for="Name">الاسم بالكامل</label>
+        <input type="text" class="form-control" id="Name" placeholder="Your Name">
+        <span id="SName" style="display:none;" class="alert-danger">required</span>
+    </div>
+    <div class="form-group">
+        <label for="PhoneNum">رقم التلفون</label>
+        <input type="text" class="form-control" id="PhoneNum" placeholder="01011111569">
+        <span id="SPhoneNum" style="display:none;" class="alert-danger">required</span>
+    </div>
+    <div class="form-group">
+        <label for="street">اسم الشارع</label>
+        <input type="text" class="form-control" id="street" placeholder="شارع طلعت حرب">
+        <span id="Sstreet" style="display:none;" class="alert-danger">required</span>
+    </div>
+    <div class="form-group">
+        <label for="street">اسم/رقم المبنى، رقم الطابق، رقم الشقة، أو رقم الفيلا</label>
+        <input type="text" class="form-control" id="BuildingNameOrNum" placeholder="رقم المبنى والطابق والشقة (مبنى 25ب، الدور الثالث، شقة رقم 20)">
+        <span id="SBuildingNameOrNum" style="display:none;" class="alert-danger">required</span>
+    </div>
+    <div class="form-group">
+        <label for="street">المدينة/المنطقة</label>
+        <input type="text" class="form-control" id="CityAndArea" placeholder="النزهة ، مدينة القاهرة الجديدة والدقي">
+        <span id="SCityAndArea" style="display:none;" class="alert-danger">required</span>
+    </div>
+    <div class="form-group">
+        <label for="street">أقرب علامة مميزة</label>
+        <input type="text" class="form-control" id="NearestToken" placeholder="على سبيل المثال كايرو فيستيفال سيتي">
+        <span id="SNearestToken" style="display:none;" class="alert-danger">required</span>
+    </div>
+    <div class="col-xs-4 col-md-4">
+        <button onclick="SaveAddress()" class="subscribe btn btn-success btn-lg btn-block" type="button" style="text-align:center">استخدم هذا  العنوان</button>
+    </div>
+</form>
+
+
+<script>
+    function SaveAddress() {
+        debugger;
+        var counter = 0;
+        if ($("#Name").val() == "") { $("#SName").show(); counter++; } else { $("#SName").hide(); }
+        if ($("#PhoneNum").val() == "") { $("#SPhoneNum").show(); counter++; } else { $("#SPhoneNum").hide(); }
+        if ($("#street").val() == "") { $("#Sstreet").show(); counter++; } else { $("#Sstreet").hide(); }
+        if ($("#BuildingNameOrNum").val() == "") { $("#SBuildingNameOrNum").show(); counter++; } else { $("#SBuildingNameOrNum").hide(); }
+        if ($("#CityAndArea").val() == "") { $("#SCityAndArea").show(); counter++; } else { $("#SCityAndArea").hide(); }
+        if ($("#NearestToken").val() == "") { $("#SNearestToken").show(); counter++; } else { $("#SNearestToken").hide(); }
+        
+        if (counter == 0) {
+        var UserData = {
+            FullName: $("#Name").val()??"",
+            PhoneNumber: $("#PhoneNum").val()??"",
+            Street: $("#street").val()??"",
+            BuildingNameOrNum: $("#BuildingNameOrNum").val()??"",
+            CityAndArea: $("#CityAndArea").val()??"",
+            NearestToken: $("#NearestToken").val(),
+        }
+           
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("SaveAddress", "Payed")',
+                data: UserData,
+                dataType: 'json',
+                success: function (data) {
+                    debugger;
+                    $.ajax({
+                        url: '@Url.Action("_Payment", "Payed")',
+                        type: 'get',
+                        data: {
+
+                        },
+                        success: function (data) {
+                            debugger;
+                            $(".Payment").tab('show');
+                            $("#Payment").html(data);
+                        },
+                        error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        debugger;
+                        }
+                    });
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    debugger;
+                }
+        });
+        }
+    }
+</script>

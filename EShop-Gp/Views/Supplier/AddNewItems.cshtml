@@ -1,0 +1,112 @@
+﻿@model EShop_Gp.Models.Items
+
+@{
+    ViewBag.Title = "Suppage";
+    Layout = "~/Views/Shared/_LayoutSupplier.cshtml";
+}
+
+<h2>Add New Items</h2>
+
+@using (Html.BeginForm("AddNewItems", "Supplier", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal" id="ItemsTable">
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.NameAr, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NameAr, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NameAr, "", new { @class = "text-danger NameAr" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NameEn, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NameEn, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NameEn, "", new { @class = "text-danger NameEn" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" name="upload" id="upload" class="control-label col-md-4 subscribe btn btn-light btn-lg btn-block" />
+                @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger Image" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger Description" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Price, "Price", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control Price" } })
+                @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PriceCost, "PriceCost", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PriceCost, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PriceCost, "", new { @class = "text-danger PriceCost" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ProductId, "Product", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @if (ViewBag.ProductsId != null)
+                {
+                    @Html.DropDownList("ProductsId", ViewBag.ProductsId, "Select ProductsId", htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ProductId, "", new { @class = "text-danger ProductsId" })
+                }
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+
+@*<script>
+    function Save() {
+        debugger;
+        var Items = {
+            NameAr : $("#NameAr").val(),
+            NameEn : $("#NameEn").val(),
+            Image: $("#upload").val(),
+            Description : $("#Description").val(),
+            Price : $("#Price").val(),
+            PriceCost : $("#PriceCost").val(),
+            ProductId: $("#ProductsId").val(),
+        }
+        $.ajax({
+            url: '@Url.Action("AddNewItems", "Supplier")',
+            data: {
+                newItems: Items,
+                upload: Image,
+            },
+            type: 'post',
+            success: function (data) {
+                debugger;
+                $("#ItemsTable").html("");
+                $("#ItemsTable").html(data);
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) { }
+        });
+
+    }
+</script>*@

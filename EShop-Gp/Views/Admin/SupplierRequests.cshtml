@@ -1,0 +1,83 @@
+﻿@model EShop_Gp.ViewModel.ItemsList
+
+@{
+    ViewBag.Title = "Supplier Requests";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<html>
+<head>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <table style="width:100%" id="RequestTable">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Cost</th>
+        </tr>
+        @foreach (var item in Model.Items)
+        {
+            <tr>
+                <td><input type="hidden" />@item.Id</td>
+                <td>@item.NameAr</td>
+                <td>@item.PriceCost</td>
+            </tr>
+            <tr>
+                <td style="left:1020px;position:relative"><a class="btn btn-primary btn-sm " onclick="Save(@item.Id,'@item.NameAr',@item.PriceCost)">Save</a></td>
+                <td style="left:965px;position:relative"><a class="btn btn-danger btn-sm" onclick="Delete(@item.Id,'@item.NameAr',@item.PriceCost)">Delete</a></td>
+            </tr>
+        }
+    </table>
+</body>
+</html>
+
+<script>
+    function Save(Id, NameAr, PriceCost) {
+        debugger;
+        var Items = {
+            Id: Id,
+            NameAr: NameAr,
+            PriceCost: PriceCost,
+        }
+        $.ajax({
+            url: '@Url.Action("SaveRequest", "Admin")',
+            data: {
+                Items: Items,
+            },
+            type: 'post',
+            success: function (data) {
+                debugger;
+                $("#RequestTable").html("");
+                $("#RequestTable").html(data);
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) { }
+        });
+    }
+    function Delete(Id, NameAr, PriceCost) {
+        debugger;
+        var Items = {
+            Id: Id,
+            NameAr: NameAr,
+            PriceCost: PriceCost,
+        }
+        $.ajax({
+            url: '@Url.Action("DeleteRequest", "Admin")',
+            data: {
+                Id: Id,
+                Items: Items,
+            },
+            type: 'post',
+            success: function (data) {
+                debugger;
+                $("#RequestTable").html("");
+                $("#RequestTable").html(data);
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) { }
+        });
+    }
+</script>

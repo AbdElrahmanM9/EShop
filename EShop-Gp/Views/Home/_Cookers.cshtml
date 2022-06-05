@@ -1,0 +1,55 @@
+﻿@model EShop_Gp.ViewModel.ItemsList
+
+@{
+    ViewBag.Title = "Cookers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<body>
+
+    <!-- POP UP -->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Cart list</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        @Html.ActionLink("Create New", "Create")
+                    </p>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- #CARDS-->
+    <div class="container-fluid padding">
+        <div class="row padding">
+            @foreach (var item in Model.Items)
+            {
+                <div class="col-lg-3">
+                    <div class="card" style=" height: 500px">
+                        <div class="thumbnail" style="background-color: #fff; box-shadow: 10px 10px 10px rgb(160 215 255); height: 480px">
+                            <img calss="card-img-top" style="width:850px;height:250px" src="@Url.Content(item.Image)" alt="...">
+                            <div class="card-body">
+                                <h4 class="card-title" style="font-size:17px"><b>@item.NameEn</b></h4>
+                                <p class="card-text" style="font-size:17px;color:#0a27cc;"><b>@item.Price</b></p>
+                                <button type="button" class="btn btn-warning btn-sm" onclick="location.href='@Url.Action("View_Detials", "List_Product" , new {id =item.Id})'"> Add to cart </button>
+
+                                <button type="button" class="btn btn-warning btn-sm" onclick="location.href='@Url.Action("View_Detials", "List_Product" , new {id =item.Id})'"> View Details </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+</body>

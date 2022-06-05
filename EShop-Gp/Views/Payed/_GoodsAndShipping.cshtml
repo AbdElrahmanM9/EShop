@@ -1,0 +1,35 @@
+﻿@model EShop_Gp.ViewModel.PopUp
+
+<div class="bd-example3">
+    <div class="col-lg-9">
+        <h1 class="fst-italic text-success text-lg-right">يوم التوصيل 26 مايو 2022 </h1>
+        <hr />
+        @foreach (var item in Model.carts)
+        {
+            <h1 class="text-lg-left">السعر : @item.Items.Price</h1>
+
+            <div class="row">
+                <div class="col-lg-10 text-lg-right">
+                    <h4>@item.Items.NameAr</h4>
+                    <p>مؤهل للحصول على شحن مجاني</p>
+                </div>
+
+                <div class="col-lg-2 text-lg-right">
+                    <img class="pic-1" src="@Url.Content(item.Items.Image)" style="width:100px">
+                </div>
+            </div>
+            <hr />
+        }
+    </div>
+
+</div>
+<div class="bd-example3">
+    <div class="p-4 bg-light">
+        <h1 class="mb-0">
+            المجموع الكلي : @Model.SumPrice
+            <a onclick="location.href='@Url.Action("Index", "Payed")'">
+                <button class="subscribe btn btn-success btn-lg btn-block my-3" type="button">تأكيد طلبك</button>
+            </a>
+        </h1>
+    </div>
+</div>

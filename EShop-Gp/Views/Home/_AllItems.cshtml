@@ -1,0 +1,49 @@
+﻿@model EShop_Gp.ViewModel.ItemsList
+
+@{
+    ViewBag.Title = ViewBag.Name;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid padding">
+    <div class="row padding">
+        @foreach (var item in Model.Items)
+        {
+            <div class="col-md-3 col-sm-6">
+                <div class="product-grid3">
+                    <div class="product-image3">
+                        <a href="#">
+                            <img class="pic-1" src="@Url.Content(item.Image)">
+                        </a>
+                        <ul class="social">
+                            <li><a onclick="location.href='@Url.Action("_DetialsItem", "Home" , new {id =item.Id})'"><i class="fa fa-shopping-bag"></i></a></li>
+                            <li><a onclick="location.href='@Url.Action("AddToCart", "Home" , new {id =item.Id , ProductId = item.ProductId})'"><i class="fa fa-shopping-cart"></i></a></li>
+                        </ul>
+                        <span class="product-new-label">New</span>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a href="#">@item.NameAr</a></h3>
+                        <div class="price">
+                            @item.Price
+                            <span>PriceAfterDiscount</span>
+                        </div>
+                        <ul class="rating">
+                            @for (int i = 0; i < 5; i++)
+                            {
+                                if (item.Evaluation >= (i + 1))
+                                {
+                                    <li class="fa fa-star"></li>
+                                }
+                                else
+                                {
+                                    <li class="fa fa-star disable"></li>
+                                }
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
