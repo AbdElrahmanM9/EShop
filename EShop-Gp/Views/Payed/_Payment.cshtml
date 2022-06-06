@@ -27,7 +27,7 @@
             </p>
         </div>
         <div class="col-xs-4 col-md-4 my-5">
-            <button class="subscribe btn btn-success btn-lg btn-block" type="button">إضافة بطاقتك</button>
+            <button onclick="FinallyPaid()" class="subscribe btn btn-success btn-lg btn-block" type="button">ادفع</button>
         </div>
     </div>
 </div>
@@ -99,14 +99,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    @*<div class="row">
-                                            <div class="col-xs-12" style=" padding-right: 15px; padding-left: 15px;">
-                                                <div class="form-group">
-                                                    <label for="couponCode">الاسم علي البطاقة</label>
-                                                    <input type="text" class="form-control" name="NameOnTheCard" id="NameOnTheCard" />
-                                                </div>
-                                            </div>
-                                        </div>*@
                                     <div class="row my-2">
                                         <div class="col-xs-8 col-lg-8">
                                             <button class="subscribe btn btn-success btn-lg btn-block" type="button" onclick="AddToCard()">إضافة الي بطاقتك</button>
@@ -136,6 +128,21 @@
 
 
 <script>
+    function FinallyPaid() {
+        $.ajax({
+            url: '@Url.Action("FinallyPaid", "Payed")',
+            type: 'get',
+            data: {},
+            success: function (data) {
+                debugger;
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                debugger;
+            }
+        });
+
+    }
+
     var request_list = [];
     var ctr = 0;
     $('.request_input').each(function (index) {
@@ -162,7 +169,6 @@
                 debugger;
                 if (data == "Error") {
                     toastr.message('يوجد مشكلة في هذه البطاقة', 'error', 3000);
-                    //toster.error('يوجد مشكلة في هذه البطاقة');
                 }
                 else {
                     $(".close").click();

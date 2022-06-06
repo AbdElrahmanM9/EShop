@@ -13,6 +13,8 @@ namespace EShop_Gp.Models
         public string NearestToken { get; set; }
 
         public string UserId { get; set; }
-        public IdentityUser User { get; set; } 
+        public IdentityUser User { get; set; }
+        public bool IsCash { get; set; }
+        public bool IsCreditCard { get; set; }
     }
 }

@@ -65,6 +65,15 @@ namespace EShop_Gp.Controllers
             var PayedByVisa = _Context.UserPayment.Where(x => x.CardNumber == CardNumber && x.ExpirationDate == ExpirationDate && x.NameOnTheCard == NameOnTheCard && x.IsVisa == true).FirstOrDefault();
             if (PayedByVisa != null)
             {
+                var UserN = User.Identity.Name;
+                var UserId = _Context.Users.FirstOrDefault(x => x.UserName == UserN);
+                var Data = _Context.UserData.Where(x => x.UserId == UserId.Id).FirstOrDefault();
+                UserData Userdata = new UserData();
+
+                Userdata.IsCreditCard = true;
+                _Context.UserData.Add(Userdata);
+                _Context.SaveChanges();
+
                 return PartialView("_Payment");
             }
             else
