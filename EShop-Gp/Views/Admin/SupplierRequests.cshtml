@@ -2,39 +2,28 @@
 
 @{
     ViewBag.Title = "Supplier Requests";
-    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<html>
-<head>
-    <style>
-        table, th, td {
-            border: 1px solid black;
-        }
-    </style>
-</head>
-<body>
-    <table style="width:100%" id="RequestTable">
-        <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Cost</th>
-        </tr>
+<div class="container-fluid padding" id="RequestTablez">
+    <div class="row padding">
         @foreach (var item in Model.Items)
         {
-            <tr>
-                <td><input type="hidden" />@item.Id</td>
-                <td>@item.NameAr</td>
-                <td>@item.PriceCost</td>
-            </tr>
-            <tr>
-                <td style="left:1020px;position:relative"><a class="btn btn-primary btn-sm " onclick="Save(@item.Id,'@item.NameAr',@item.PriceCost)">Save</a></td>
-                <td style="left:965px;position:relative"><a class="btn btn-danger btn-sm" onclick="Delete(@item.Id,'@item.NameAr',@item.PriceCost)">Delete</a></td>
-            </tr>
+            <div class="col-md-3 col-sm-6">
+                <div class="product-grid3">
+                    <div class="product-image3">
+                        <a href="#"></a>
+                        <img style="width: 100%;" src="@Url.Content(item.Image)" alt="...">
+                        <h4 class="card-title"><b>@item.NameEn</b></h4>
+                        <p class="card-text">@item.Price</p>
+
+                        <input type="button" class="btn btn-primary btn-sm " onclick="Save(@item.Id,'@item.NameAr',@item.PriceCost)" value="Save" />
+                        <input type="button" class="btn btn-primary btn-sm " onclick="Delete(@item.Id,'@item.NameAr',@item.PriceCost)" value="Delete" />
+                    </div>
+                </div>
+            </div>
         }
-    </table>
-</body>
-</html>
+    </div>
+</div>
 
 <script>
     function Save(Id, NameAr, PriceCost) {
@@ -52,8 +41,8 @@
             type: 'post',
             success: function (data) {
                 debugger;
-                $("#RequestTable").html("");
-                $("#RequestTable").html(data);
+                $("#RequestTablez").html("");
+                $("#RequestTablez").html(data);
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) { }
         });
@@ -74,8 +63,8 @@
             type: 'post',
             success: function (data) {
                 debugger;
-                $("#RequestTable").html("");
-                $("#RequestTable").html(data);
+                $("#RequestTablez").html("");
+                $("#RequestTablez").html(data);
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) { }
         });

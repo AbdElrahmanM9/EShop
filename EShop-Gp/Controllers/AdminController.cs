@@ -27,14 +27,25 @@ namespace EShop_Gp.Controllers
         public ActionResult Index(string filter)
         {
             var UserN = User.Identity.Name;
-            var UserId = _Context.Users.FirstOrDefault(x => x.UserName == UserN);
+            var UserId = _Context.User.FirstOrDefault(x => x.UserName == UserN);
 
-            var viewmodel = new PopUp()
+            if (UserId.Type == "Admin")
             {
-                products = _Context.Products.Include(p => p.category).Where(s => s.category.Name.Contains(filter) || filter == null).ToList(),
-                carts = _Context.Cart.Include(c => c.Product).ToList()
-            };
-            return View(viewmodel);
+                var viewmodel = new PopUp()
+                {
+                    products = _Context.Products.Include(p => p.category).Where(s => s.category.Name.Contains(filter) || filter == null).ToList(),
+                    carts = _Context.Cart.Include(c => c.Product).ToList()
+                };
+                return View(viewmodel);
+            }
+            else if (UserId.Type == "Supplier")
+            {
+                return RedirectToAction("Index", "Supplier");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
         }
         public ActionResult MoreDetials(string NameEn)
         {
@@ -78,15 +89,33 @@ namespace EShop_Gp.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult AddNewItems(Product newproduct, IFormFile upload)
+        public ActionResult AddNewItems([FromForm] ItemsModel newproduct)
         {
+            
             if (ModelState.IsValid)
             {
-                newproduct.Image = UploadImagesHelper.UploadImage(upload, "Images");
+                var UserN = User.Identity.Name;
+                var UserId = _Context.User.FirstOrDefault(x => x.UserName == UserN);
 
-                _Context.Products.Add(newproduct);
+                var product = new Items()
+                {
+                    NameAr = newproduct.NameAr,
+                    NameEn = newproduct.NameEn,
+                    Price = newproduct.Price.Value,
+                    PriceCost = newproduct.PriceCost.Value,
+                    Description = newproduct.Description,
+                    ProductId = newproduct.ProductId.Value,
+                    IsActive = true,
+                    FlagRequest = true,
+                    IsDeleted = false,
+                    UserId = UserId.Id
+                };
+                if (newproduct.Image != null) {
+                    product.Image = UploadImagesHelper.UploadImage(newproduct.Image, "Images");
+                }
+                _Context.Items.Add(product);
                 _Context.SaveChanges();
-                return RedirectToAction("Home");
+                return Json("Done");
             }
 
             ViewBag.ProductsId = _Context.Categories.Select(x => new SelectListItem()
@@ -134,26 +163,25 @@ namespace EShop_Gp.Controllers
             };
             return View(Model);
         }
-        public ActionResult SaveRequest(Items Items, IFormFile upload)
+        public ActionResult SaveRequest(Items Items)
         {
             if (Items != null)
             {
                 try
                 {
-                    Items = _Context.Items.FirstOrDefault(X => X.Id == Items.Id);
-                    Items.Image = UploadImagesHelper.UploadImage(upload, "Image");
-
+                    Items = _Context.Items.FirstOrDefault(X => X.Id == Items.Id);                    
                     Items.IsActive = true;
                     Items.IsDeleted = false;
                     Items.FlagRequest = true;
     
                     _Context.Entry(Items).CurrentValues.SetValues(Items);
                     _Context.SaveChanges();
+
                     var Model = new ItemsList()
                     {
                         Items = _Context.Items.Where(X => X.FlagRequest == false && X.IsActive == true && X.IsDeleted == false).ToList(),
                     };
-                    return PartialView("Index", Model);
+                    return PartialView("SupplierRequests", Model);
                 }
                 catch (Exception)
                 {
@@ -168,7 +196,6 @@ namespace EShop_Gp.Controllers
             if (Items != null)
             {
                 Items = _Context.Items.FirstOrDefault(X => X.Id == Items.Id);
-                Items.Image = UploadImagesHelper.UploadImage(upload, "Image");
 
                 Items.IsActive = false;
                 Items.IsDeleted = true;
@@ -180,7 +207,7 @@ namespace EShop_Gp.Controllers
                 {
                     Items = _Context.Items.Where(X => X.FlagRequest == false && X.IsActive == true && X.IsDeleted == false).ToList(),
                 };
-                return PartialView("Index", Model);
+                return PartialView("SupplierRequests", Model);
             }
             _Context.SaveChanges();
             return RedirectToAction("Home");

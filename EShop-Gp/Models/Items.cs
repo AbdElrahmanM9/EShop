@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -23,5 +24,7 @@ namespace EShop_Gp.Models
         public int AddToCart { get; set; }
         public bool sold { get; set; }
         public int? Evaluation { get; set; }
+        public string UserId { get; set; }
+        public IdentityUser User { get; set; }
     }
 }

@@ -25,7 +25,27 @@ namespace EShop_Gp.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var UserN = User.Identity.Name;
+            var UserId = _Context.User.FirstOrDefault(x => x.UserName == UserN);
+            if (UserId != null)
+            {
+                if (UserId.Type == "Admin")
+                {
+                    return RedirectToAction("Index", "Admin");
+                }
+                else if (UserId.Type == "Supplier")
+                {
+                    return RedirectToAction("Index", "Supplier");
+                }
+                else
+                {
+                    return View();
+                }
+            }
+            else
+            {
+                return View();
+            }
         }
 
         public IActionResult Privacy()

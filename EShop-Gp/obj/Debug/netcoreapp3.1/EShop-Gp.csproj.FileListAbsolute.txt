@@ -1175,7 +1175,6 @@ G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\bin\Debug\netcoreapp3.1\runtimes\win-x8
 G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\obj\Debug\netcoreapp3.1\EShop-Gp.csproj.AssemblyReference.cache
 G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\obj\Debug\netcoreapp3.1\EShop-Gp.GeneratedMSBuildEditorConfig.editorconfig
 G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\obj\Debug\netcoreapp3.1\EShop-Gp.AssemblyInfoInputs.cache
 G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\obj\Debug\netcoreapp3.1\EShop-Gp.AssemblyInfo.cs
@@ -1227,3 +1226,5 @@ G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\obj\Debug\netcoreapp3.1\EShop-Gp.csproj
 G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\obj\Debug\netcoreapp3.1\EShop-Gp.dll
 G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\obj\Debug\netcoreapp3.1\EShop-Gp.pdb
 G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\obj\Debug\netcoreapp3.1\EShop-Gp.genruntimeconfig.cache
+G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\obj\Debug\netcoreapp3.1\Razor\Views\Supplier\MyProductApproval.cshtml.g.cs
+G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\obj\Debug\netcoreapp3.1\EShop-Gp.csproj.AssemblyReference.cache

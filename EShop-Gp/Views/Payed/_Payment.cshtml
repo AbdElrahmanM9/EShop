@@ -20,7 +20,7 @@
         <div class="col-12 my-0">
             <h3 class="form-check-label">
                 الدفع عند الاستلام
-                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" spellcheck="false">
+                <input class="request_input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" spellcheck="false" orderId="true">
             </h3>
             <p class="form-check-label my-2">
                 .الدفع نقدًا عند الاستلام. قد يتم تطبيق رسوم قدرها 9 جنيه مصري مقابل الدفع عند الاستلام
@@ -136,6 +136,14 @@
 
 
 <script>
+    var request_list = [];
+    var ctr = 0;
+    $('.request_input').each(function (index) {
+        if ($(this).is(":checked")) {
+            request_list[ctr] = $(this).attr('orderId');
+            ctr++;
+        }
+    });
 
     function AddToCard() {
         debugger;

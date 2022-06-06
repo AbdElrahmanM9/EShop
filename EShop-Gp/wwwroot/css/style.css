@@ -18,7 +18,9 @@ body {
     bottom: 3rem;
     z-index: 10;
 }
-
+.disabled, :disabled {
+    pointer-events: none !important;
+}
 .carousel-item {
     height: 25rem !important;
 }
@@ -473,6 +475,21 @@ input {
 .bd-example3 {
     padding: 1.5rem;
     margin-right: 30%;
+    margin-left: 0;
+    border-width: 0.2rem;
+    border-radius: 1.25rem
+}
+.bd-example5 {
+    position: relative;
+    padding: 1rem;
+    margin: 1rem -15px 0;
+    border: solid #cfcfcf;
+    border-width: 0.2rem 0 0;
+}
+
+.bd-example5 {
+    padding: 1.5rem;
+    margin-right: 0%;
     margin-left: 0;
     border-width: 0.2rem;
     border-radius: 1.25rem

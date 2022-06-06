@@ -2,18 +2,17 @@
 
 @{
     ViewBag.Title = "Add New Item";
-    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    //Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
 <h2>Add New Items</h2>
 
-@using (Html.BeginForm("AddNewItems", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("AddNewItems", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" , id = "AddForm" }))
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal" id="ItemsTable">
+    <div class="bd-example5" id="ItemsTable">
 
-        <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             @Html.LabelFor(model => model.NameAr, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -38,10 +37,6 @@
                 @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger Image" })
             </div>
         </div>
-        @*<button class="subscribe btn btn-light btn-lg btn-block " type="button" data-dismiss="modal" aria-label="Close">
-                إلغاء
-                <span aria-hidden="true"></span>
-            </button>*@
         <div class="form-group">
             @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -71,14 +66,14 @@
             <div class="col-md-10">
                 @if (ViewBag.ProductsId != null)
                 {
-                    @Html.DropDownList("ProductsId", ViewBag.ProductsId, "Select ProductsId", htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.ProductId, "", new { @class = "text-danger ProductsId" })
+                    @Html.DropDownList("ProductId", ViewBag.ProductsId, "Select ProductId", htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ProductId, "", new { @class = "text-danger ProductId" })
                 }
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-success" />
+                <input type="button" onclick="Save()" value="Save" class="btn btn-success"/>
             </div>
         </div>
     </div>
@@ -86,32 +81,35 @@
 
 
 
-@*<script>
+<script>
     function Save() {
         debugger;
-        var Items = {
-            NameAr : $("#NameAr").val(),
-            NameEn : $("#NameEn").val(),
-            Image: $("#upload").val(),
-            Description : $("#Description").val(),
-            Price : $("#Price").val(),
-            PriceCost : $("#PriceCost").val(),
-            ProductId: $("#ProductsId").val(),
-        }
+        var form = $('#AddForm').serializeArray(); // You need to use standard javascript object here
+        var formData = new FormData();
+        form.forEach(x => {
+            formData.append(x.name, x.value);
+        });
+        formData.append('Image', $('#upload')[0].files[0]);
+        console.log(form);
         $.ajax({
             url: '@Url.Action("AddNewItems", "Admin")',
-            data: {
-                newItems: Items,
-            },
-            type: 'post',
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            method: 'POST',
             success: function (data) {
-                debugger;
-                $("#ItemsTable").html("");
-                $("#ItemsTable").html(data);
+                $("#NameAr").val("");
+                $("#NameEn").val("");
+                $("#Image").val("");
+                $("#Description").val("");
+                $("#Price").val("");
+                $("#PriceCost").val("");
+                $("#ProductId").val("");
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) { }
         });
 
     }
 
-    </script>*@
+</script>

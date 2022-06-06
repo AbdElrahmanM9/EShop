@@ -1,0 +1,25 @@
+﻿@model EShop_Gp.ViewModel.PopUp
+
+@{
+    ViewBag.Title = "Supplier Home";
+    Layout = "~/Views/Shared/_LayoutSupplier.cshtml";
+}
+
+<div class="container-fluid padding">
+    <div class="row padding">
+        @foreach (var item in Model.Items)
+        {
+            <div class="col-md-3 col-sm-6">
+                <div class="product-grid3">
+                    <div class="product-image3">
+                        <a href="#">
+                            <img style="width: 100%;" src="@Url.Content(item.Image)" alt="...">
+                            <h4 class="card-title"><b>@item.NameEn</b></h4>
+                            <p class="card-text">@item.Price</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

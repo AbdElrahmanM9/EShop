@@ -6,29 +6,29 @@
 @*nav-pills*@
 <ul class="nav nav-tabs mb-3" id="pills-tab" role="tablist">
     <li class="nav-item">
-        <a href="#Address" class="Address nav-link active" id="Address-tab" data-toggle="tab" role="tab" aria-controls="Address"
+        <a href="#Address" class="Address nav-link item-tab active" id="Address-tab" data-toggle="tab" role="tab" aria-controls="Address"
            aria-selected="true"><span class="tab-num">1- </span>اختر عنوان شحن</a>
     </li>
     <li class="nav-item" role="presentation">
-        <a href="#Payment" class="Payment nav-link disable" id="Payment-tab" data-toggle="tab" role="tab" aria-controls="Payment"
+        <a href="#Payment" class="Payment nav-link item-tab disabled" id="Payment-tab" data-toggle="tab" role="tab" aria-controls="Payment"
            aria-selected="true"><span class="tab-num">2- </span>طريقة الدفع</a>
     </li>
     <li class="nav-item disable" role="presentation">
-        <a href="#GoodsAndShipping" class="GoodsAndShipping nav-link disable" id="GoodsAndShipping-tab" data-toggle="tab" role="tab" aria-controls="GoodsAndShipping" aria-selected="false"><span class="tab-num">3- </span> السلع والشحن</a>
+        <a href="#GoodsAndShipping" class="GoodsAndShipping nav-link item-tab disabled" id="GoodsAndShipping-tab" data-toggle="tab" role="tab" aria-controls="GoodsAndShipping" aria-selected="false"><span class="tab-num">3- </span> السلع والشحن</a>
     </li>
 </ul>
 
 <div class="tab-content">
 
-    <div class="tab-pane bd-example show active" id="Address" role="tabpanel" aria-labelledby="Address-tab">
+    <div class="tab-pane request-tab-pane bd-example show active" id="Address" role="tabpanel" aria-labelledby="Address-tab">
 
     </div>
 
-    <div class="tab-pane bd-example " id="Payment" role="tabpanel" aria-labelledby="Payment-tab">
+    <div class="tab-pane request-tab-pane bd-example " id="Payment" role="tabpanel" aria-labelledby="Payment-tab">
 
     </div>
 
-    <div class="tab-pane" id="GoodsAndShipping" role="tabpanel" aria-labelledby="GoodsAndShipping-tab">
+    <div class="tab-pane request-tab-pane" id="GoodsAndShipping" role="tabpanel" aria-labelledby="GoodsAndShipping-tab">
 
     </div>
 </div>
@@ -36,6 +36,10 @@
 
 <script>
 
+    function cleartabs() {
+        $('.item-tab').removeClass('active');
+        $('.request-tab-pane').removeClass('active')
+    }
     $(document).ready(function () {
         $(".Address").click();
     }

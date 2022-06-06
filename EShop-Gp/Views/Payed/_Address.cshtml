@@ -73,7 +73,12 @@
                         },
                         success: function (data) {
                             debugger;
-                            $(".Payment").tab('show');
+                            cleartabs();
+                            $('#Payment').addClass('active');
+                            $('#Payment').addClass('active');
+
+                            //$(".Payment").tab('show');
+                            //$(".Payment").removeClass();
                             $("#Payment").html(data);
                         },
                         error: function (XMLHttpRequest, textStatus, errorThrown) {
