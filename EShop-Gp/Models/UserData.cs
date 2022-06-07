@@ -16,5 +16,7 @@ namespace EShop_Gp.Models
         public IdentityUser User { get; set; }
         public bool IsCash { get; set; }
         public bool IsCreditCard { get; set; }
+        public int? CartId { get; set; }
+        public Cart Cart { get; set; }
     }
 }

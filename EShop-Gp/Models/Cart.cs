@@ -20,5 +20,6 @@ namespace EShop_Gp.Models
         public Items Items { get; set; }
         public bool IsActive { get; set; }
         public bool IsDeleted { get; set; }
+        public bool IsPaid { get; set; }
     }
 }

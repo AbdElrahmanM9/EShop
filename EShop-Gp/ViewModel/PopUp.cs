@@ -13,5 +13,7 @@ namespace EShop_Gp.ViewModel
         public IEnumerable<Cart> carts { get; set; }
         public int UserId { get; set; }
         public decimal SumPrice { get; set; }
+        public DateTime DayOfReceipt { get; set; }
+        public List<int> CartIds { get; set; }
     }
 }

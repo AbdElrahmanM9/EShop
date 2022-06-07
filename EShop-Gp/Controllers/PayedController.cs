@@ -43,10 +43,12 @@ namespace EShop_Gp.Controllers
             {
                 var viewmodel = new PopUp()
                 {
-                    carts = _Context.Cart.Include(c => c.Product).Include(c => c.Items).Where(x => x.UserId == UserId.Id).ToList(),
+                    carts = _Context.Cart.Include(c => c.Product).Include(c => c.Items).Where(x => x.UserId == UserId.Id && x.IsDeleted == false && x.IsPaid == false).ToList(),
                 };
                 viewmodel.SumPrice = viewmodel.carts.Select(s => s.Items.Price).Sum();
                 viewmodel.Items = _Context.Items.Where(x => x.ProductId == viewmodel.carts.FirstOrDefault().ProductId).Take(3).ToList();
+                viewmodel.DayOfReceipt = DateTime.Now.AddDays(5);
+                viewmodel.CartIds = viewmodel.carts.Select(x => x.Id).ToList();
 
                 return PartialView(viewmodel);
             }
@@ -89,6 +91,8 @@ namespace EShop_Gp.Controllers
             var UserId = _Context.Users.FirstOrDefault(x => x.UserName == UserN).Id;
             if (UserId != null)
             {
+                var Cart = _Context.Cart.Where(x => x.UserId == UserId).FirstOrDefault();
+
                 UserData Userdata = new UserData();
                 Userdata.FullName = UserDataV.FullName;
                 Userdata.PhoneNumber = UserDataV.PhoneNumber;
@@ -97,6 +101,7 @@ namespace EShop_Gp.Controllers
                 Userdata.CityAndArea = UserDataV.CityAndArea;
                 Userdata.NearestToken = UserDataV.NearestToken;
                 Userdata.UserId = UserId;
+                Userdata.CartId = Cart.Id;
 
                 _Context.UserData.Add(Userdata);
                 _Context.SaveChanges();
@@ -136,6 +141,27 @@ namespace EShop_Gp.Controllers
                 {
                     return Json("ChoosePaymentMethod");
                 }
+            }
+        }
+        public ActionResult ConfirmOrder(List<int> CartIds)
+        {
+            try
+            {
+                foreach (var item in CartIds)
+                {
+                    var CartModel = _Context.Cart.FirstOrDefault(x => x.Id == item);
+                    CartModel.IsPaid = true;
+
+                    _Context.Cart.Add(CartModel);
+                }
+                _Context.SaveChanges();
+
+                return Json("Done");
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
     }
