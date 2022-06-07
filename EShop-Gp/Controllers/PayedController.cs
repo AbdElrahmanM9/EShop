@@ -107,5 +107,36 @@ namespace EShop_Gp.Controllers
                 return Json("Error");
             }
         }
+
+
+        public ActionResult FinallyPaid(bool Cash)
+        {
+            if (Cash == true)
+            {
+                var UserN = User.Identity.Name;
+                var UserId = _Context.Users.FirstOrDefault(x => x.UserName == UserN);
+                var Data = _Context.UserData.Where(x => x.UserId == UserId.Id).FirstOrDefault();
+                UserData Userdata = new UserData();
+
+                Userdata.IsCash = true;
+                _Context.UserData.Add(Userdata);
+                _Context.SaveChanges();
+                return Json("CashDone");
+            }
+            else
+            {
+                var UserN = User.Identity.Name;
+                var UserId = _Context.Users.FirstOrDefault(x => x.UserName == UserN);
+                var Data = _Context.UserData.Where(x => x.UserId == UserId.Id).FirstOrDefault();
+                if (Data.IsCreditCard == true)
+                {
+                    return Json("CreditDone");
+                }
+                else
+                {
+                    return Json("ChoosePaymentMethod");
+                }
+            }
+        }
     }
 }

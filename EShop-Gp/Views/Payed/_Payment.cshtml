@@ -129,12 +129,67 @@
 
 <script>
     function FinallyPaid() {
+        debugger;
+        var IsCash = false;
+        var ctr = 0;
+        $('.request_input').each(function (index) {
+            if ($(this).is(":checked")) {
+                ctr++;
+            }
+        });
+        if (ctr > 0) {
+            IsCash = true;
+        }
+        debugger;
         $.ajax({
             url: '@Url.Action("FinallyPaid", "Payed")',
-            type: 'get',
-            data: {},
+            data: {
+                Cash: IsCash,
+            },
             success: function (data) {
                 debugger;
+                if (data == "CashDone") {
+                    $.ajax({
+                        url: '@Url.Action("_GoodsAndShipping", "Payed")',
+                        type: 'get',
+                        data: {},
+                        success: function (data) {
+                            debugger;
+                            cleartabs();
+                            $('#GoodsAndShippingTab').addClass('active');
+                            $('#GoodsAndShippingTab').addClass('active');
+                            $(".GoodsAndShipping").removeClass('disabled');
+                            $("#GoodsAndShippingTab").html(data);
+                        },
+                        error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        debugger;
+                        }
+                    });
+                }
+                else if (data == "CreditDone") {
+                    $.ajax({
+                        url: '@Url.Action("_GoodsAndShipping", "Payed")',
+                        type: 'get',
+                        data: {},
+                        success: function (data) {
+                            debugger;
+                            cleartabs();
+                            $('#GoodsAndShippingTab').addClass('active');
+                            $('#GoodsAndShippingTab').addClass('active');
+                            $(".GoodsAndShipping").removeClass('disabled');
+                            $("#GoodsAndShippingTab").html(data);
+                        },
+                        error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        debugger;
+                        }
+                    });
+                }
+                else if (data == "ChoosePaymentMethod") {
+                    toastr.message('برجاء اختيار طريقة سداد', 'error', 3000);
+                }
+                else {
+                    toastr.message('برجاء مراجعة مستويات الصلاحية', 'error', 3000);
+                }
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
                 debugger;
@@ -142,15 +197,6 @@
         });
 
     }
-
-    var request_list = [];
-    var ctr = 0;
-    $('.request_input').each(function (index) {
-        if ($(this).is(":checked")) {
-            request_list[ctr] = $(this).attr('orderId');
-            ctr++;
-        }
-    });
 
     function AddToCard() {
         debugger;

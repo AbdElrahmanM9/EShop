@@ -38,42 +38,40 @@
 
     function cleartabs() {
         $('.item-tab').removeClass('active');
-        $('.request-tab-pane').removeClass('active')
+        $('.request-tab-pane').removeClass('active');
     }
+
     $(document).ready(function () {
         $(".Address").click();
-    }
-    );
+    });
+
     $("body").on("click", ".Address", function () {
         debugger;
         $.ajax({
             url: '@Url.Action("_Address", "Payed")',
             type: 'get',
-            data: {
-
-            },
+            data: {},
             success: function (data) {
                 debugger;
                 $(".Address").tab('show');
-                $("#Address").html(data);
+                $("#AddressTab").html(data);
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
                 debugger;
             }
         });
     });
+
     $("body").on("click", ".Payment", function () {
         debugger;
         $.ajax({
             url: '@Url.Action("_Payment", "Payed")',
             type: 'get',
-            data: {
-
-            },
+            data: {},
             success: function (data) {
                 debugger;
                 $(".Payment").tab('show');
-                $("#Payment").html(data);
+                $("#PaymentTab").html(data);
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
                 debugger;
@@ -86,15 +84,13 @@
         $.ajax({
             url: '@Url.Action("_GoodsAndShipping", "Payed")',
             type: 'get',
-            data: {
-
-            },
+            data: {},
             success: function (data) {
                 debugger;
                 $(".show").removeClass("show");
                 $(".active").removeClass("active");
                 $(".GoodsAndShipping").tab('show');
-                $("#GoodsAndShipping").html(data);
+                $("#GoodsAndShippingTab").html(data);
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
                 debugger;
