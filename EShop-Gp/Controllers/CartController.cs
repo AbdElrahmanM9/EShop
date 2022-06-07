@@ -55,6 +55,7 @@ namespace EShop_Gp.Controllers
             var UserId = _Context.Users.FirstOrDefault(x => x.UserName == UserN);
             var Cart = _Context.Cart.FirstOrDefault(x => x.ItemsId == Id && x.UserId == UserId.Id);
             Cart.IsDeleted = true;
+            Cart.IsActive = false;
 
             _Context.SaveChanges(); 
             

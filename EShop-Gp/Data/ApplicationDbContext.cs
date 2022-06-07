@@ -18,6 +18,7 @@ namespace EShop_Gp.Data
         public DbSet<Admin> Admin { get; set; }
 
         public DbSet<Cart> Cart { get; set; }
+        public DbSet<CartMaster> CartMaster { get; set; }
         public DbSet<UserData> UserData { get; set; }
         public DbSet<UserPayment> UserPayment { get; set; }
     }

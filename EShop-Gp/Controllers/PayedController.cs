@@ -70,10 +70,9 @@ namespace EShop_Gp.Controllers
                 var UserN = User.Identity.Name;
                 var UserId = _Context.Users.FirstOrDefault(x => x.UserName == UserN);
                 var Data = _Context.UserData.Where(x => x.UserId == UserId.Id).FirstOrDefault();
-                UserData Userdata = new UserData();
 
-                Userdata.IsCreditCard = true;
-                _Context.UserData.Add(Userdata);
+                Data.IsCreditCard = true;
+                _Context.Entry(Data).CurrentValues.SetValues(Data);
                 _Context.SaveChanges();
 
                 return PartialView("_Payment");
@@ -121,10 +120,10 @@ namespace EShop_Gp.Controllers
                 var UserN = User.Identity.Name;
                 var UserId = _Context.Users.FirstOrDefault(x => x.UserName == UserN);
                 var Data = _Context.UserData.Where(x => x.UserId == UserId.Id).FirstOrDefault();
-                UserData Userdata = new UserData();
 
-                Userdata.IsCash = true;
-                _Context.UserData.Add(Userdata);
+                Data.IsCash = true;
+
+                _Context.Entry(Data).CurrentValues.SetValues(Data);
                 _Context.SaveChanges();
                 return Json("CashDone");
             }
@@ -143,16 +142,23 @@ namespace EShop_Gp.Controllers
                 }
             }
         }
-        public ActionResult ConfirmOrder(List<int> CartIds)
+        public ActionResult ConfirmOrder(int Id)
         {
             try
             {
-                foreach (var item in CartIds)
+                var CartMaster = _Context.CartMaster.FirstOrDefault(x => x.Id == Id);
+                CartMaster.IsPaid = true;
+
+                _Context.Entry(CartMaster).CurrentValues.SetValues(CartMaster);
+                _Context.SaveChanges();
+                var CartDetail = _Context.Cart.Where(x => x.CartMasterId == CartMaster.Id).ToList();
+
+                foreach (var item in CartDetail)
                 {
-                    var CartModel = _Context.Cart.FirstOrDefault(x => x.Id == item);
+                    var CartModel = _Context.Cart.FirstOrDefault(x => x.Id == item.Id);
                     CartModel.IsPaid = true;
 
-                    _Context.Cart.Add(CartModel);
+                    _Context.Entry(CartModel).CurrentValues.SetValues(CartModel);
                 }
                 _Context.SaveChanges();
 

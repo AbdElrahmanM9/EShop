@@ -99,12 +99,25 @@ namespace EShop_Gp.Controllers
                 var Item = _Context.Items.FirstOrDefault(x => x.Id == id);
 
                 Item.AddToCart = Item.AddToCart + 1;
+                var Cartmaster = _Context.CartMaster.Where(x => x.UserId == UserId.Id && x.IsPaid == false).FirstOrDefault();
+                CartMaster CartMaster = new CartMaster();
+                if (Cartmaster == null)
+                {
+                    CartMaster.IsActive = true;
+                    CartMaster.IsDeleted = false;
+                    CartMaster.OrderTime = DateTime.Now;
+                    CartMaster.UserId = UserId.Id;
+
+                    _Context.CartMaster.Add(CartMaster);
+                    _Context.SaveChanges();
+                }
 
                 Cart Cart = new Cart();
                 Cart.ProductId = ProductId;
                 Cart.ItemsId = id;
                 Cart.UserId = UserId.Id;
                 Cart.AddedTime = DateTime.Now;
+                Cart.CartMasterId = CartMaster.Id;
 
                 _Context.Cart.Add(Cart);
                 _Context.SaveChanges();

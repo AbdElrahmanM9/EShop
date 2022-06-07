@@ -21,5 +21,8 @@ namespace EShop_Gp.Models
         public bool IsActive { get; set; }
         public bool IsDeleted { get; set; }
         public bool IsPaid { get; set; }
+        public int CartMasterId { get; set; }
+        [ForeignKey("CartMasterId")]
+        public CartMaster CartMaster { get; set; }
     }
 }
