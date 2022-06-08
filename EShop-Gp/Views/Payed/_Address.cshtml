@@ -1,34 +1,43 @@
 ﻿@model EShop_Gp.ViewModel.UserDataViewModel
+@{
 
+    var FullName = Model.FullName != null ? Model.FullName : "";
+    var PhoneNumber = Model.PhoneNumber != null ? Model.PhoneNumber : "";
+    var Street = Model.Street != null ? Model.Street : "";
+    var BuildingNameOrNum = Model.BuildingNameOrNum != null ? Model.BuildingNameOrNum : "";
+    var CityAndArea = Model.CityAndArea != null ? Model.CityAndArea : "";
+    var NearestToken = Model.NearestToken != null ? Model.NearestToken : "";
+
+}
 <form>
     <div class="form-group">
         <label for="Name">الاسم بالكامل</label>
-        <input type="text" class="form-control" id="Name" placeholder="Your Name">
+        <input type="text" class="form-control" id="Name" placeholder="Your Name" value="@FullName">
         <span id="SName" style="display:none;" class="alert-danger">required</span>
     </div>
     <div class="form-group">
         <label for="PhoneNum">رقم التلفون</label>
-        <input type="text" class="form-control" id="PhoneNum" placeholder="01011111569">
+        <input type="text" class="form-control" id="PhoneNum" placeholder="01011111569" value="@PhoneNumber">
         <span id="SPhoneNum" style="display:none;" class="alert-danger">required</span>
     </div>
     <div class="form-group">
         <label for="street">اسم الشارع</label>
-        <input type="text" class="form-control" id="street" placeholder="شارع طلعت حرب">
+        <input type="text" class="form-control" id="street" placeholder="شارع طلعت حرب" value="@Street">
         <span id="Sstreet" style="display:none;" class="alert-danger">required</span>
     </div>
     <div class="form-group">
         <label for="street">اسم/رقم المبنى، رقم الطابق، رقم الشقة، أو رقم الفيلا</label>
-        <input type="text" class="form-control" id="BuildingNameOrNum" placeholder="رقم المبنى والطابق والشقة (مبنى 25ب، الدور الثالث، شقة رقم 20)">
+        <input type="text" class="form-control" id="BuildingNameOrNum" value="@BuildingNameOrNum" placeholder="رقم المبنى والطابق والشقة (مبنى 25ب، الدور الثالث، شقة رقم 20">
         <span id="SBuildingNameOrNum" style="display:none;" class="alert-danger">required</span>
     </div>
     <div class="form-group">
         <label for="street">المدينة/المنطقة</label>
-        <input type="text" class="form-control" id="CityAndArea" placeholder="النزهة ، مدينة القاهرة الجديدة والدقي">
+        <input type="text" class="form-control" id="CityAndArea" value="@CityAndArea" placeholder="النزهة ، مدينة القاهرة الجديدة والدقي">
         <span id="SCityAndArea" style="display:none;" class="alert-danger">required</span>
     </div>
     <div class="form-group">
         <label for="street">أقرب علامة مميزة</label>
-        <input type="text" class="form-control" id="NearestToken" placeholder="على سبيل المثال كايرو فيستيفال سيتي">
+        <input type="text" class="form-control" id="NearestToken" value="@NearestToken" placeholder="على سبيل المثال كايرو فيستيفال سيتي">
         <span id="SNearestToken" style="display:none;" class="alert-danger">required</span>
     </div>
     <div class="col-xs-4 col-md-4">
@@ -47,7 +56,7 @@
         if ($("#BuildingNameOrNum").val() == "") { $("#SBuildingNameOrNum").show(); counter++; } else { $("#SBuildingNameOrNum").hide(); }
         if ($("#CityAndArea").val() == "") { $("#SCityAndArea").show(); counter++; } else { $("#SCityAndArea").hide(); }
         if ($("#NearestToken").val() == "") { $("#SNearestToken").show(); counter++; } else { $("#SNearestToken").hide(); }
-        
+
         if (counter == 0) {
         var UserData = {
             FullName: $("#Name").val()??"",
@@ -57,7 +66,7 @@
             CityAndArea: $("#CityAndArea").val()??"",
             NearestToken: $("#NearestToken").val(),
         }
-           
+
             $.ajax({
                 type: 'POST',
                 url: '@Url.Action("SaveAddress", "Payed")',

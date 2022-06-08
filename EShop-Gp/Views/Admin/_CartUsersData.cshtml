@@ -1,0 +1,54 @@
+﻿@model List<EShop_Gp.ViewModel.UserViewModel>
+
+@{
+    ViewBag.Title = "Admin Users Data";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<html>
+<head>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        tr:hover {
+            background-color: rgba(150, 212, 212, 0.4);
+        }
+        .trhhh {
+            text-align: center;
+            background-color: rgb(166 221 221 / 0.40);
+        }
+
+    </style>
+</head>
+<body>
+
+    <table style="width:100%">
+        <tr class="trhhh">
+            <th>Item Id</th>
+            <th>User Name</th>
+            <th>Item Name</th>
+            <th>Added Time</th>
+            <th>Order Status</th>
+            <th>User Phone Number</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ItemId</td>
+                <td>@item.UserName</td>
+                <td>@item.ItemName</td>
+                <td>@item.AddedTime</td>
+                <td>@item.IsPaid</td>
+                <td>@item.UserPhoneNum</td>
+            </tr>
+        }
+    </table>
+
+</body>
+</html>
+
+
+
+
+

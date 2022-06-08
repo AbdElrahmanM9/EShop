@@ -37,7 +37,7 @@ namespace EShop_Gp.Controllers
                 {
                     viewmodel.Items = _Context.Items.Where(x => x.ProductId == viewmodel.carts.FirstOrDefault().ProductId).Take(3).ToList();
                 }
-               
+
                 return PartialView(viewmodel);
             }
             else
@@ -57,9 +57,25 @@ namespace EShop_Gp.Controllers
             Cart.IsDeleted = true;
             Cart.IsActive = false;
 
-            _Context.SaveChanges(); 
-            
+            _Context.SaveChanges();
+
             return RedirectToAction("_Cart");
+        }
+        public ActionResult _StatusOrder()
+        {
+            var UserN = User.Identity.Name;
+            var UserId = _Context.Users.FirstOrDefault(x => x.UserName == UserN).Id;
+            if (UserId != null)
+            {
+                StatusOrderViewModel StatusOrderViewModel = new StatusOrderViewModel();
+
+                var CartMaster = _Context.CartMaster.FirstOrDefault(x => x.UserId == UserId);
+                return PartialView(CartMaster);
+            }
+            else
+            {
+                return PartialView();
+            }
         }
     }
 }

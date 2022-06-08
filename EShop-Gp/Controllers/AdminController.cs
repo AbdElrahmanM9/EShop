@@ -47,6 +47,71 @@ namespace EShop_Gp.Controllers
                 return RedirectToAction("Index", "Home");
             }
         }
+        public ActionResult _UsersPage()
+        {
+            var UserN = User.Identity.Name;
+            var UserId = _Context.User.FirstOrDefault(x => x.UserName == UserN);
+
+            if (UserId.Type == "Admin")
+            {
+                var UserDetail = _Context.User.ToList();
+                List<UserViewModel> viewmodelList = new List<UserViewModel>();
+                foreach (var item in UserDetail)
+                {
+                    if (item.Type != "Admin")
+                    {
+                        var UserMoreDetail = _Context.UserData.FirstOrDefault(x => x.UserId == item.Id);
+
+                        UserViewModel viewmodel = new UserViewModel();
+
+                        viewmodel.UserName = item.UserName;
+                        viewmodel.Email = item.Email;
+                        viewmodel.Type = item.Type;
+                        viewmodel.UserPhoneNum = UserMoreDetail.PhoneNumber;
+
+                        viewmodelList.Add(viewmodel);
+                    }
+                }
+
+                return PartialView("_UsersPage", viewmodelList);
+            }
+            else
+            {
+                return null;
+            }
+        }
+        public ActionResult _CartUsersData()
+        {
+            var UserN = User.Identity.Name;
+            var UserId = _Context.User.FirstOrDefault(x => x.UserName == UserN);
+
+            if (UserId.Type == "Admin")
+            {
+                var CartDetail = _Context.Cart.Include(x => x.Items).ToList();
+                List<UserViewModel> viewmodelList = new List<UserViewModel>();
+                foreach (var item in CartDetail)
+                {
+                    var UserDetail = _Context.User.FirstOrDefault(x => x.Id == item.UserId);
+                    var UserMoreDetail = _Context.UserData.FirstOrDefault(x => x.UserId == item.UserId);
+                    UserViewModel viewmodel = new UserViewModel();
+
+                    viewmodel.UserName = UserDetail.UserName;
+                    viewmodel.ItemId = item.ItemsId;
+                    viewmodel.ItemName = item.Items.NameAr + " " + item.Items.NameEn;
+                    viewmodel.AddedTime = item.AddedTime;
+                    viewmodel.IsPaid = item.IsPaid == true ? "تم اكتمال الطلب" : "0000";
+                    viewmodel.UserPhoneNum = UserMoreDetail != null ? UserMoreDetail.PhoneNumber : "00000000";
+
+                    viewmodelList.Add(viewmodel);
+                }
+
+                return PartialView("_CartUsersData", viewmodelList);
+            }
+            else
+            {
+                return null;
+            }
+        }
         public ActionResult MoreDetials(string NameEn)
         {
             var prod = _Context.Products.Where(x => x.NameEn == NameEn).FirstOrDefault();
@@ -83,7 +148,7 @@ namespace EShop_Gp.Controllers
         {
             ViewBag.ProductsId = _Context.Products.Select(x => new SelectListItem()
             {
-                Text = x.NameAr + "_" + x.NameEn ,
+                Text = x.NameAr + "_" + x.NameEn,
                 Value = x.Id.ToString(),
             });
             return View();
@@ -91,7 +156,7 @@ namespace EShop_Gp.Controllers
         [HttpPost]
         public ActionResult AddNewItems([FromForm] ItemsModel newproduct)
         {
-            
+
             if (ModelState.IsValid)
             {
                 var UserN = User.Identity.Name;
@@ -110,7 +175,8 @@ namespace EShop_Gp.Controllers
                     IsDeleted = false,
                     UserId = UserId.Id
                 };
-                if (newproduct.Image != null) {
+                if (newproduct.Image != null)
+                {
                     product.Image = UploadImagesHelper.UploadImage(newproduct.Image, "Images");
                 }
                 _Context.Items.Add(product);
@@ -129,8 +195,9 @@ namespace EShop_Gp.Controllers
         [HttpGet]
         public ActionResult AddNewProduct()
         {
-            ViewBag.Categoryid = _Context.Categories.Select(x=> new SelectListItem() { 
-                Text= x.Name,
+            ViewBag.Categoryid = _Context.Categories.Select(x => new SelectListItem()
+            {
+                Text = x.Name,
                 Value = x.Id.ToString(),
             });
             return View();
@@ -155,7 +222,7 @@ namespace EShop_Gp.Controllers
 
         }
 
-        public ActionResult SupplierRequests() 
+        public ActionResult SupplierRequests()
         {
             var Model = new ItemsList()
             {
@@ -169,11 +236,11 @@ namespace EShop_Gp.Controllers
             {
                 try
                 {
-                    Items = _Context.Items.FirstOrDefault(X => X.Id == Items.Id);                    
+                    Items = _Context.Items.FirstOrDefault(X => X.Id == Items.Id);
                     Items.IsActive = true;
                     Items.IsDeleted = false;
                     Items.FlagRequest = true;
-    
+
                     _Context.Entry(Items).CurrentValues.SetValues(Items);
                     _Context.SaveChanges();
 

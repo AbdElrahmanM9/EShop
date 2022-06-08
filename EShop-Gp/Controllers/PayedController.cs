@@ -29,7 +29,33 @@ namespace EShop_Gp.Controllers
         }
         public IActionResult _Address()
         {
-            return PartialView();
+            var UserN = User.Identity.Name;
+            var UserId = _Context.Users.FirstOrDefault(x => x.UserName == UserN).Id;
+            if (UserId != null)
+            {
+                var UserDetail = _Context.UserData.FirstOrDefault(x => x.UserId == UserId);
+                UserDataViewModel UserDataViewModel = new UserDataViewModel();
+
+                if (UserDetail != null)
+                {
+                    UserDataViewModel.FullName = UserDetail.FullName;
+                    UserDataViewModel.BuildingNameOrNum = UserDetail.BuildingNameOrNum;
+                    UserDataViewModel.CityAndArea = UserDetail.CityAndArea;
+                    UserDataViewModel.NearestToken = UserDetail.NearestToken;
+                    UserDataViewModel.PhoneNumber = UserDetail.PhoneNumber;
+                    UserDataViewModel.Street = UserDetail.Street;
+                 
+                    return PartialView(UserDataViewModel);
+                }
+                else
+                {
+                    return PartialView(UserDataViewModel);
+                }
+            }
+            else
+            {
+                return null;
+            }
         }
         public IActionResult _Payment()
         {
@@ -91,27 +117,34 @@ namespace EShop_Gp.Controllers
             if (UserId != null)
             {
                 var Cart = _Context.Cart.Where(x => x.UserId == UserId).FirstOrDefault();
+                var UserDetail = _Context.UserData.FirstOrDefault(x => x.UserId == UserId && x.FullName == UserDataV.FullName && x.PhoneNumber == UserDataV.PhoneNumber && x.Street == UserDataV.Street && x.BuildingNameOrNum == UserDataV.BuildingNameOrNum && x.CityAndArea == UserDataV.CityAndArea && x.NearestToken == UserDataV.NearestToken);
 
-                UserData Userdata = new UserData();
-                Userdata.FullName = UserDataV.FullName;
-                Userdata.PhoneNumber = UserDataV.PhoneNumber;
-                Userdata.Street = UserDataV.Street;
-                Userdata.BuildingNameOrNum = UserDataV.BuildingNameOrNum;
-                Userdata.CityAndArea = UserDataV.CityAndArea;
-                Userdata.NearestToken = UserDataV.NearestToken;
-                Userdata.UserId = UserId;
-                Userdata.CartId = Cart.Id;
+                if (UserDetail != null)
+                {
+                    return Json("Done");
+                }
+                else
+                {
+                    UserData Userdata = new UserData();
+                    Userdata.FullName = UserDataV.FullName;
+                    Userdata.PhoneNumber = UserDataV.PhoneNumber;
+                    Userdata.Street = UserDataV.Street;
+                    Userdata.BuildingNameOrNum = UserDataV.BuildingNameOrNum;
+                    Userdata.CityAndArea = UserDataV.CityAndArea;
+                    Userdata.NearestToken = UserDataV.NearestToken;
+                    Userdata.UserId = UserId;
+                    Userdata.CartId = Cart.Id;
 
-                _Context.UserData.Add(Userdata);
-                _Context.SaveChanges();
-                return Json("Done");
+                    _Context.UserData.Add(Userdata);
+                    _Context.SaveChanges();
+                    return Json("Done");
+                }
             }
             else
             {
                 return Json("Error");
             }
         }
-
 
         public ActionResult FinallyPaid(bool Cash)
         {

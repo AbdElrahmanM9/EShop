@@ -148,10 +148,6 @@ namespace EShop_Gp.Controllers
             }
         }
 
-        //public ActionResult Search()
-        //{
-        //    return null;
-        //}
         public async Task<IActionResult> Search(string searchString)
         {
             var Items = from m in _Context.Items

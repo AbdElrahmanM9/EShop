@@ -1228,3 +1228,5 @@ G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\obj\Debug\netcoreapp3.1\EShop-Gp.pdb
 G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\obj\Debug\netcoreapp3.1\EShop-Gp.genruntimeconfig.cache
 G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\obj\Debug\netcoreapp3.1\Razor\Views\Supplier\MyProductApproval.cshtml.g.cs
 G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\obj\Debug\netcoreapp3.1\EShop-Gp.csproj.AssemblyReference.cache
+G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\obj\Debug\netcoreapp3.1\Razor\Views\Admin\_CartUsersData.cshtml.g.cs
+G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\obj\Debug\netcoreapp3.1\Razor\Views\Admin\_UsersPage.cshtml.g.cs
