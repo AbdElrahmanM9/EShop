@@ -33,7 +33,7 @@ namespace EShop_Gp.Controllers
                     carts = _Context.Cart.Where(x => x.UserId == UserId.Id && x.IsDeleted == false && x.IsPaid == false).Include(c => c.Product).Include(c => c.Items).Where(x => x.UserId == UserId.Id).ToList(),
                 };
                 viewmodel.SumPrice = viewmodel.carts.Select(s => s.Items.Price).Sum();
-                if (viewmodel.carts != null)
+                if (viewmodel.carts != null && viewmodel.carts.Count() != 0)
                 {
                     viewmodel.Items = _Context.Items.Where(x => x.ProductId == viewmodel.carts.FirstOrDefault().ProductId).Take(3).ToList();
                 }

@@ -101,6 +101,8 @@ namespace EShop_Gp.Controllers
                 Item.AddToCart = Item.AddToCart + 1;
                 var Cartmaster = _Context.CartMaster.Where(x => x.UserId == UserId.Id && x.IsPaid == false).FirstOrDefault();
                 CartMaster CartMaster = new CartMaster();
+                Cart Cart = new Cart();
+
                 if (Cartmaster == null)
                 {
                     CartMaster.IsActive = true;
@@ -110,18 +112,35 @@ namespace EShop_Gp.Controllers
 
                     _Context.CartMaster.Add(CartMaster);
                     _Context.SaveChanges();
+
+                    Cart.ProductId = ProductId;
+                    Cart.ItemsId = id;
+                    Cart.UserId = UserId.Id;
+                    Cart.AddedTime = DateTime.Now;
+                    Cart.CartMasterId = CartMaster.Id;
+
+                    _Context.Cart.Add(Cart);
+                    _Context.SaveChanges();
+                }
+                else
+                {
+                    Cart.ProductId = ProductId;
+                    Cart.ItemsId = id;
+                    Cart.UserId = UserId.Id;
+                    Cart.AddedTime = DateTime.Now;
+                    Cart.CartMasterId = Cartmaster.Id;
+
+                    _Context.Cart.Add(Cart);
+                    _Context.SaveChanges();
                 }
 
-                Cart Cart = new Cart();
-                Cart.ProductId = ProductId;
-                Cart.ItemsId = id;
-                Cart.UserId = UserId.Id;
-                Cart.AddedTime = DateTime.Now;
-                Cart.CartMasterId = CartMaster.Id;
 
-                _Context.Cart.Add(Cart);
-                _Context.SaveChanges();
-                return RedirectToAction("Index");
+                var ItemsModel = new ItemsList
+                {
+                    Items = _Context.Items.Where(x=>x.IsActive == true && x.IsDeleted == false).ToList(),
+                };
+
+                return PartialView("_AllItems", ItemsModel);
             }
             else
             {

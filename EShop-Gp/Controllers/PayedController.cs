@@ -47,7 +47,7 @@ namespace EShop_Gp.Controllers
                 };
                 viewmodel.SumPrice = viewmodel.carts.Select(s => s.Items.Price).Sum();
                 viewmodel.Items = _Context.Items.Where(x => x.ProductId == viewmodel.carts.FirstOrDefault().ProductId).Take(3).ToList();
-                viewmodel.DayOfReceipt = DateTime.Now.AddDays(5);
+                viewmodel.DayOfReceipt = DateTime.Now.AddDays(5).ToString("yyyy/MM/dd");
                 viewmodel.CartIds = viewmodel.carts.Select(x => x.Id).ToList();
 
                 return PartialView(viewmodel);
@@ -142,11 +142,11 @@ namespace EShop_Gp.Controllers
                 }
             }
         }
-        public ActionResult ConfirmOrder(int Id)
+        public ActionResult ConfirmOrder(int CartMasterId)
         {
             try
             {
-                var CartMaster = _Context.CartMaster.FirstOrDefault(x => x.Id == Id);
+                var CartMaster = _Context.CartMaster.FirstOrDefault(x => x.Id == CartMasterId);
                 CartMaster.IsPaid = true;
 
                 _Context.Entry(CartMaster).CurrentValues.SetValues(CartMaster);

@@ -1,5 +1,7 @@
 ﻿@model EShop_Gp.ViewModel.PopUp
-
+@{
+    var CartMasterId = @Model.carts.Select(s => s.CartMasterId).FirstOrDefault();
+}
 <div class="bd-example3">
     <div class="col-lg-9">
 
@@ -30,19 +32,19 @@
             المجموع الكلي : @Model.SumPrice
         </h1>
         <div class="col-xs-12 col-md-12">
-            <button onclick="ConfirmOrder(@Json.Serialize(Model.CartIds)" class="subscribe btn btn-success btn-lg btn-block my-3" type="button" style="text-align:center">تأكيد طلبك</button>
+            <button onclick="ConfirmOrder(@CartMasterId)" class="subscribe btn btn-success btn-lg btn-block my-3" type="button" style="text-align:center">تأكيد طلبك</button>
         </div>
     </div>
 </div>
 
 <script>
-    function ConfirmOrder(CartIds) {
+    function ConfirmOrder(CartMasterId) {
         debugger;
         $.ajax({
             type: 'POST',
             url: '@Url.Action("ConfirmOrder", "Payed")',
             data: {
-                CartIds: CartIds,
+                CartMasterId: CartMasterId,
             },
             dataType: 'json',
             success: function (data) {
@@ -52,8 +54,9 @@
                         url: '@Url.Action("Index", "Home")',
                         type: 'get',
                         data: {},
-                        success: function (data) {
+                        success: function (datal) {
                             debugger;
+                            $("#GoodsAndShipping").html(datal);
                         },
                         error: function (XMLHttpRequest, textStatus, errorThrown) {
                         debugger;
