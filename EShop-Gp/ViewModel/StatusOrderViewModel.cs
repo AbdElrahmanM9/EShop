@@ -7,7 +7,7 @@ namespace EShop_Gp.ViewModel
 {
     public class StatusOrderViewModel
     {
-        public DateTime OrderTimeOfReceipt { get; set; }
+        public string OrderTimeOfReceipt { get; set; }
         public int ItemId { get; set; }
         public String NameAr { get; set; }
         public String NameEn { get; set; }

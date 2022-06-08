@@ -67,10 +67,30 @@ namespace EShop_Gp.Controllers
             var UserId = _Context.Users.FirstOrDefault(x => x.UserName == UserN).Id;
             if (UserId != null)
             {
-                StatusOrderViewModel StatusOrderViewModel = new StatusOrderViewModel();
+                List<StatusOrderViewModel> StatusOrderViewModelList = new List<StatusOrderViewModel>();
 
                 var CartMaster = _Context.CartMaster.FirstOrDefault(x => x.UserId == UserId);
-                return PartialView(CartMaster);
+                if (CartMaster != null)
+                {
+                    var Cart = _Context.Cart.Include(x => x.Items).Where(s => s.CartMasterId == CartMaster.Id);
+                    foreach (var item in Cart)
+                    {
+                        StatusOrderViewModel StatusOrderViewModel = new StatusOrderViewModel();
+
+                        StatusOrderViewModel.Image = item.Items.Image;
+                        StatusOrderViewModel.ItemId = item.ItemsId;
+                        StatusOrderViewModel.NameAr = item.Items.NameAr;
+                        StatusOrderViewModel.NameEn = item.Items.NameEn;
+                        StatusOrderViewModel.Price = item.Items.Price;
+                        StatusOrderViewModel.OrderTimeOfReceipt = CartMaster.OrderTime.AddDays(5).ToString("yyyy/MM/dd");
+                        StatusOrderViewModelList.Add(StatusOrderViewModel);
+                    }
+                    return PartialView(StatusOrderViewModelList);
+                }
+                else
+                {
+                    return PartialView();
+                }
             }
             else
             {
