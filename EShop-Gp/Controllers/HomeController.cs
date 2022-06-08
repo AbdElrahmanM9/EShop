@@ -169,33 +169,6 @@ namespace EShop_Gp.Controllers
 
             return PartialView("_AllItems", ItemsModel);
         }
-        public ActionResult ConfirmOrder(int CartMasterId)
-        {
-            try
-            {
-                var CartMaster = _Context.CartMaster.FirstOrDefault(x => x.Id == CartMasterId);
-                CartMaster.IsPaid = true;
-
-                _Context.Entry(CartMaster).CurrentValues.SetValues(CartMaster);
-                _Context.SaveChanges();
-                var CartDetail = _Context.Cart.Where(x => x.CartMasterId == CartMaster.Id).ToList();
-
-                foreach (var item in CartDetail)
-                {
-                    var CartModel = _Context.Cart.FirstOrDefault(x => x.Id == item.Id);
-                    CartModel.IsPaid = true;
-
-                    _Context.Entry(CartModel).CurrentValues.SetValues(CartModel);
-                }
-                _Context.SaveChanges();
-
-                return RedirectToAction("Index");
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
 
         #region bla7
         //public ActionResult _Tvs(string filter)

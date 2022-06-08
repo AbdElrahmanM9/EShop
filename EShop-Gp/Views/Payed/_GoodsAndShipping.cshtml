@@ -33,7 +33,7 @@
         </h1>
         <div class="col-xs-12 col-md-12">
             @*<button onclick="ConfirmOrder(@CartMasterId)" class="subscribe btn btn-success btn-lg btn-block my-3" type="button" style="text-align:center">تأكيد طلبك</button>*@
-            <button onclick="location.href='@Url.Action("ConfirmOrder", "Home" , new {CartMasterId =CartMasterId})'" class="subscribe btn btn-success btn-lg btn-block my-3" type="button" style="text-align:center">تأكيد طلبك</button>
+            <button onclick="location.href='@Url.Action("ConfirmOrder", "Payed" , new {CartMasterId =CartMasterId})'" class="subscribe btn btn-success btn-lg btn-block my-3" type="button" style="text-align:center">تأكيد طلبك</button>
         </div>
     </div>
 </div>
