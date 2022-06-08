@@ -142,33 +142,5 @@ namespace EShop_Gp.Controllers
                 }
             }
         }
-        public ActionResult ConfirmOrder(int CartMasterId)
-        {
-            try
-            {
-                var CartMaster = _Context.CartMaster.FirstOrDefault(x => x.Id == CartMasterId);
-                CartMaster.IsPaid = true;
-
-                _Context.Entry(CartMaster).CurrentValues.SetValues(CartMaster);
-                _Context.SaveChanges();
-                var CartDetail = _Context.Cart.Where(x => x.CartMasterId == CartMaster.Id).ToList();
-
-                foreach (var item in CartDetail)
-                {
-                    var CartModel = _Context.Cart.FirstOrDefault(x => x.Id == item.Id);
-                    CartModel.IsPaid = true;
-
-                    _Context.Entry(CartModel).CurrentValues.SetValues(CartModel);
-                }
-                _Context.SaveChanges();
-
-                return Json("Done");
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
     }
 }
