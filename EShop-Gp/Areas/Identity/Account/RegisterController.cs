@@ -37,6 +37,7 @@ namespace EShop_Gp.Areas.Identity.Account
                     Email = model.Email,
                     EmailConfirmed = true,
                     Type = "User",
+                    PhoneNumber = model.Phonenumber.ToString(),
                 };
 
                 var result = await _userManager.CreateAsync(user, model.Password);
@@ -45,7 +46,7 @@ namespace EShop_Gp.Areas.Identity.Account
                 {
                      await _signInManager.SignInAsync(user, isPersistent: false);
 
-                    return RedirectToAction("index", "Home");
+                    return RedirectToAction("Login", "Login");
                 }
 
                 foreach (var error in result.Errors)

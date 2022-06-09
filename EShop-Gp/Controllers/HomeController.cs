@@ -83,14 +83,20 @@ namespace EShop_Gp.Controllers
             {
                 return new StatusCodeResult((int)HttpStatusCode.BadRequest);
             }
+            ItemsList ItemList = new ItemsList();
+
+            ItemList.Item = _Context.Items.FirstOrDefault(c => c.Id == id);
+            ItemList.Items = _Context.Items.Where(x => x.ProductId == ItemList.Item.ProductId).Take(7).ToList();
+
             var Products = _Context.Items.FirstOrDefault(c => c.Id == id);
-            if (Products == null)
+
+            if (ItemList.Item == null)
             {
                 return NotFound();
             }
-            return PartialView(Products);
+            return PartialView(ItemList);
         }
-        public ActionResult AddToCart(int id,int ProductId)
+        public ActionResult AddToCart(int id, int ProductId)
         {
             var UserN = User.Identity.Name;
             var UserId = _Context.Users.FirstOrDefault(x => x.UserName == UserN);
@@ -137,7 +143,7 @@ namespace EShop_Gp.Controllers
 
                 var ItemsModel = new ItemsList
                 {
-                    Items = _Context.Items.Where(x=>x.IsActive == true && x.IsDeleted == false).ToList(),
+                    Items = _Context.Items.Where(x => x.IsActive == true && x.IsDeleted == false).ToList(),
                 };
 
                 return PartialView("_AllItems", ItemsModel);
@@ -151,11 +157,11 @@ namespace EShop_Gp.Controllers
         public async Task<IActionResult> Search(string searchString)
         {
             var Items = from m in _Context.Items
-                         select m;
+                        select m;
 
             if (!string.IsNullOrEmpty(searchString))
             {
-                Items = Items.Where(s => s.NameAr.Contains(searchString)|| s.NameEn.Contains(searchString)|| s.Description.Contains(searchString));
+                Items = Items.Where(s => s.NameAr.Contains(searchString) || s.NameEn.Contains(searchString) || s.Description.Contains(searchString));
             }
 
             var ItemsModel = new ItemsList
