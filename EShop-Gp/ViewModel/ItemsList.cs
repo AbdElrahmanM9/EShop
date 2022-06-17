@@ -12,5 +12,6 @@ namespace EShop_Gp.ViewModel
         public Items Item { get; set; }
         public IEnumerable<Product> products { get; set; }
         public IEnumerable<Cart> carts { get; set; }
+        public Slid Slid { get; set; }
     }
 }

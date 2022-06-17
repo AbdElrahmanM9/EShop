@@ -15,7 +15,7 @@
             @Html.DisplayFor(model => model.Item.NameAr))
         </dd>
         <dd>
-            <img style="height:200px; width:200px;" src="@Url.Content(Model.Item.Image))" alt="Sample Image" />
+            <img class="pic-1" src="@Url.Content(Model.Item.Image)" style="width:100px">
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Item.Price)
@@ -36,99 +36,44 @@
     </dl>
 </div>
 
-@*@foreach (var item in Model.Items)
-{
-    <div class="DivFore">
-        <div class="container">
-
-            <div class="carousel5">
-                <div class="card">
-
-                    <div class="card-header">
-                        <img class="pic-1" src="@Url.Content(item.Image)" style="width:100px">
-                    </div>
-                    <div class="card-body">
-                        <div class="card-content">
-                            <div class="card-title">
-                                <p>
-                                    <i onclick="location.href='@Url.Action("MoreDetials", "Home", new { NameEn = item.NameEn })'">
-                                        <h4>@item.NameAr</h4>
-                                    </i>
-                                </p>
-                            </div>
-                            <div class="card-text">
-                                <h1 class="text-lg-left">السعر : @item.Price</h1>
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-}*@
-
 <div class="DivFore">
     <div class="container">
         <h2>منتجات قد تعجبك</h2>
         <div class="carousel5">
             <div class="card">
                 <div class="card-header">
-                    <img class="pic-1" src="@Url.Content(Model.Items.Take(1).Select(x=>x.Image).First())" style="width:100px">
+                    <img class="pic-1" src="@Url.Content(Model.Slid.Img1)" style="width:100px">
                 </div>
                 <div class="card-body">
                     <div class="card-content">
                         <div class="card-title">
                             <p>
                                 <i onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Phones"})'">
-                                    <a>@Model.Items.Take(1).Select(x => x.NameAr).First()</a>
+                                    <a>@Model.Slid.Name1).First()</a>
                                 </i>
                             </p>
                         </div>
                         <div class="card-text">
-                            <h1 class="text-lg-left">السعر : @Model.Items.Take(1).Select(x => x.Price).First()</h1>
+                            <h1 class="text-lg-left">السعر : @Model.Slid.Price1</h1>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="card">
                 <div class="card-header">
-                    <img class="pic-1" src="@Url.Content(Model.Items.Take(2).Select(x=>x.Image).First())" style="width:100px">
+                    <img class="pic-1" src="@Url.Content(Model.Slid.Img2)" style="width:100px">
                 </div>
                 <div class="card-body">
                     <div class="card-content">
                         <div class="card-title">
                             <p>
                                 <i onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Phones"})'">
-                                    <a>@Model.Items.Take(2).Select(x => x.NameAr).First()</a>
+                                    <a>@Model.Slid.Name2</a>
                                 </i>
                             </p>
                         </div>
                         <div class="card-text">
-                            <h1 class="text-lg-left">السعر : @Model.Items.Take(2).Select(x => x.Price).First()</h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <img class="pic-1" src="@Url.Content(Model.Items.Take(3).Select(x=>x.Image).First())" style="width:100px">
-                </div>
-                <div class="card-body">
-                    <div class="card-content">
-                        <div class="card-title">
-                            <p>
-                                <i onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Phones"})'">
-                                    <a>@Model.Items.Take(3).Select(x => x.NameAr).First()</a>
-                                </i>
-                            </p>
-                        </div>
-                        <div class="card-text">
-                            <h1 class="text-lg-left">السعر : @Model.Items.Take(3).Select(x => x.Price).First()</h1>
+                            <h1 class="text-lg-left">السعر : @Model.Slid.Price2</h1>
                         </div>
                     </div>
                 </div>
@@ -136,19 +81,19 @@
 
             <div class="card">
                 <div class="card-header">
-                    <img class="pic-1" src="@Url.Content(Model.Items.Take(4).Select(x=>x.Image).First())" style="width:100px">
+                    <img class="pic-1" src="@Url.Content(Model.Slid.Img3)" style="width:100px">
                 </div>
                 <div class="card-body">
                     <div class="card-content">
                         <div class="card-title">
                             <p>
                                 <i onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Phones"})'">
-                                    <a>@Model.Items.Take(4).Select(x => x.NameAr).First()</a>
+                                    <a>@Model.Slid.Name3</a>
                                 </i>
                             </p>
                         </div>
                         <div class="card-text">
-                            <h1 class="text-lg-left">السعر : @Model.Items.Take(4).Select(x => x.Price).First()</h1>
+                            <h1 class="text-lg-left">السعر : @Model.Slid.Price3</h1>
                         </div>
                     </div>
                 </div>
@@ -156,19 +101,19 @@
 
             <div class="card">
                 <div class="card-header">
-                    <img class="pic-1" src="@Url.Content(Model.Items.Take(5).Select(x=>x.Image).First())" style="width:100px">
+                    <img class="pic-1" src="@Url.Content(Model.Slid.Img4)" style="width:100px">
                 </div>
                 <div class="card-body">
                     <div class="card-content">
                         <div class="card-title">
                             <p>
                                 <i onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Phones"})'">
-                                    <a>@Model.Items.Take(5).Select(x => x.NameAr).First()</a>
+                                    <a>@Model.Slid.Name4</a>
                                 </i>
                             </p>
                         </div>
                         <div class="card-text">
-                            <h1 class="text-lg-left">السعر : @Model.Items.Take(5).Select(x => x.Price).First()</h1>
+                            <h1 class="text-lg-left">السعر : @Model.Slid.Price4</h1>
                         </div>
                     </div>
                 </div>
@@ -176,19 +121,39 @@
 
             <div class="card">
                 <div class="card-header">
-                    <img class="pic-1" src="@Url.Content(Model.Items.Take(6).Select(x=>x.Image).First())" style="width:100px">
+                    <img class="pic-1" src="@Url.Content(Model.Slid.Img5)" style="width:100px">
                 </div>
                 <div class="card-body">
                     <div class="card-content">
                         <div class="card-title">
                             <p>
                                 <i onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Phones"})'">
-                                    <a>@Model.Items.Take(6).Select(x => x.NameAr).First()</a>
+                                    <a>@Model.Slid.Name5</a>
                                 </i>
                             </p>
                         </div>
                         <div class="card-text">
-                            <h1 class="text-lg-left">السعر : @Model.Items.Take(6).Select(x => x.Price).First()</h1>
+                            <h1 class="text-lg-left">السعر : @Model.Slid.Price5</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <img class="pic-1" src="@Url.Content(Model.Slid.Img6)" style="width:100px">
+                </div>
+                <div class="card-body">
+                    <div class="card-content">
+                        <div class="card-title">
+                            <p>
+                                <i onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Phones"})'">
+                                    <a>@Model.Slid.Name6</a>
+                                </i>
+                            </p>
+                        </div>
+                        <div class="card-text">
+                            <h1 class="text-lg-left">السعر : @Model.Slid.Price6</h1>
                         </div>
                     </div>
                 </div>

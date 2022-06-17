@@ -1,1 +1,103 @@
-﻿
+﻿@model EShop_Gp.ViewModel.PopUp
+
+@{
+    ViewBag.Title = "My Cart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .plus-minus-input {
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+
+        .plus-minus-input .input-group-field {
+            text-align: center;
+            margin-left: 0.5rem;
+            margin-right: 0.5rem;
+            padding: 1rem;
+        }
+
+            .plus-minus-input .input-group-field::-webkit-inner-spin-button,
+            .plus-minus-input .input-group-field ::-webkit-outer-spin-button {
+                -webkit-appearance: none;
+                appearance: none;
+            }
+
+        .plus-minus-input .input-group-button .circle {
+            border-radius: 50%;
+            padding: 0.25em 0.8em;
+        }
+</style>
+@{
+    int Count = 1;
+}
+@if (Model != null)
+{
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="position-sticky">
+                <div class="p-4 mb-5 bg-light">
+                    <h1 class="mb-0">
+                        المجموع الكلي :
+                        @Model.SumPrice
+                    </h1>
+                    <a onclick="location.href='@Url.Action("Index", "Payed")'"><button class="px-lg-5 col-xl-9 bg-primary alert-success">تابع عملية الشراء</button></a>
+                </div>
+            </div>
+            <div class="py-xl-5 bg-light panel-heading text-center">
+                @if (Model.Items != null)
+                {
+                    <h4 class="fst-italic text-center">قد يعجبك أيضًا</h4>
+                    @foreach (var item in Model.Items)
+                    {
+                        if (Count <= 3)
+                        {
+                            <div class="list-unstyled mb-4">
+                                <img class="pic-1" src="@Url.Content(item.Image)" style="width:100px">
+                                <p class="title">@item.NameAr</p>
+                                <div class="price">
+                                    @item.Price
+                                </div>
+                                <a onclick="location.href='@Url.Action("AddToCart", "Home" , new {id =item.Id , ProductId = item.ProductId})'"><i class="fa fa-shopping-cart"></i></a>
+                            </div>
+                            Count++;
+                        }
+                    }
+                }
+                else
+                {
+                }
+
+            </div>
+        </div>
+
+        <div class="col-lg-9" id="CartTable">
+
+        </div>
+
+    </div>
+
+}
+else
+{
+}
+
+<script>
+    $(document).ready(function () {
+        debugger;
+        $.ajax({
+            url: '@Url.Action("_Cart", "Cart")',
+            data: {},
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+                debugger;
+                $("#CartTable").html('');
+                $("#CartTable").html(data);
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) { }
+        });
+
+    });
+
+</script>

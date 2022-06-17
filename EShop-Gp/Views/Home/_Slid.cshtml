@@ -1,0 +1,149 @@
+﻿@model EShop_Gp.ViewModel.Slid
+
+<div class="DivFore">
+    <h2>منتجات قد تعجبك</h2>
+    <div class="carousel5">
+        <div class="card">
+            <div class="card-header">
+                <img class="pic-1" src="@Url.Content(Model.Img1))" style="width:100px">
+            </div>
+            <div class="card-body">
+                <div class="card-content">
+                    <div class="card-title">
+                        <p>
+                            <i onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = Model.ProductId})'">
+                                <a>@Model.Name1</a>
+                            </i>
+                        </p>
+                    </div>
+                    <div class="card-text">
+                        <h1 class="text-lg-left">السعر : @Model.Price1</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <img class="pic-1" src="@Url.Content(Model.Img2))" style="width:100px">
+            </div>
+            <div class="card-body">
+                <div class="card-content">
+                    <div class="card-title">
+                        <p>
+                            <i onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = Model.ProductId})'">
+                                <a>@Model.Name2</a>
+                            </i>
+                        </p>
+                    </div>
+                    <div class="card-text">
+                        <h1 class="text-lg-left">السعر : @Model.Price2</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <img class="pic-1" src="@Url.Content(Model.Img3)" style="width:100px">
+            </div>
+            <div class="card-body">
+                <div class="card-content">
+                    <div class="card-title">
+                        <p>
+                            <i onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = Model.ProductId})'">
+                                <a>@Model.Name3</a>
+                            </i>
+                        </p>
+                    </div>
+                    <div class="card-text">
+                        <h1 class="text-lg-left">السعر : @Model.Price3</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <img class="pic-1" src="@Url.Content(Model.Img4)" style="width:100px">
+            </div>
+            <div class="card-body">
+                <div class="card-content">
+                    <div class="card-title">
+                        <p>
+                            <i onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = Model.ProductId})'">
+                                <a>@Model.Name4</a>
+                            </i>
+                        </p>
+                    </div>
+                    <div class="card-text">
+                        <h1 class="text-lg-left">السعر : @Model.Price4</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <img class="pic-1" src="@Url.Content(Model.Img5)" style="width:100px">
+            </div>
+            <div class="card-body">
+                <div class="card-content">
+                    <div class="card-title">
+                        <p>
+                            <i onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = Model.ProductId})'">
+                                <a>@Model.Name5</a>
+                            </i>
+                        </p>
+                    </div>
+                    <div class="card-text">
+                        <h1 class="text-lg-left">السعر : @Model.Price5</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <img class="pic-1" src="@Url.Content(Model.Img6)" style="width:100px">
+            </div>
+            <div class="card-body">
+                <div class="card-content">
+                    <div class="card-title">
+                        <p>
+                            <i onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = Model.ProductId})'">
+                                <a>@Model.Name6</a>
+                            </i>
+                        </p>
+                    </div>
+                    <div class="card-text">
+                        <h1 class="text-lg-left">السعر : @Model.Price6</h1>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        @*<div class="card">
+                <div class="card-header">
+                    <img class="pic-1" src="@Url.Content(Model.Img7)" style="width:100px">
+                </div>
+                <div class="card-body">
+                    <div class="card-content">
+                        <div class="card-title">
+                            <p>
+                                <i onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = Model.ProductId})'">
+                                    <a>@Model.Name7</a>
+                                </i>
+                            </p>
+                        </div>
+                        <div class="card-text">
+                            <h1 class="text-lg-left">السعر : @Model.Price7</h1>
+                        </div>
+                    </div>
+                </div>
+
+            </div>*@
+    </div>
+
+
+
+</div>

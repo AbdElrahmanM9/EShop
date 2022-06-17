@@ -20,6 +20,7 @@
                             <li><a onclick="location.href='@Url.Action("AddToCart", "Home" , new {id =item.Id , ProductId = item.ProductId})'"><i class="fa fa-shopping-cart"></i></a></li>
                         </ul>
                         <span class="product-new-label">New</span>
+                        
                     </div>
                     <div class="product-content">
                         <h3 class="title"><a href="#">@item.NameAr</a></h3>
@@ -47,3 +48,6 @@
     </div>
 </div>
 
+<script>
+    var ItemId = $("#ItemId").val();
+</script>

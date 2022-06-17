@@ -2,108 +2,43 @@
 
 @{
     ViewBag.Title = "My Cart";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<style>
-    .plus-minus-input {
-        -webkit-align-items: center;
-        -ms-flex-align: center;
-        align-items: center;
-    }
 
-        .plus-minus-input .input-group-field {
-            text-align: center;
-            margin-left: 0.5rem;
-            margin-right: 0.5rem;
-            padding: 1rem;
-        }
-
-            .plus-minus-input .input-group-field::-webkit-inner-spin-button,
-            .plus-minus-input .input-group-field ::-webkit-outer-spin-button {
-                -webkit-appearance: none;
-                appearance: none;
-            }
-
-        .plus-minus-input .input-group-button .circle {
-            border-radius: 50%;
-            padding: 0.25em 0.8em;
-        }
-</style>
 @{
-    int Count = 1;
     int row = 1;
 }
 
-<div class="row">
-    <div class="col-lg-3">
-        <div class="position-sticky">
-            <div class="p-4 mb-5 bg-light">
-                <h1 class="mb-0">
-                    المجموع الكلي :
-                    @Model.SumPrice
-                </h1>
-                <a onclick="location.href='@Url.Action("Index", "Payed")'"><button class="px-lg-5 col-xl-9 bg-primary alert-success">تابع عملية الشراء</button></a>
-            </div>
-        </div>
-        <div class="py-xl-5 bg-light panel-heading text-center">
-            @if (Model.Items != null)
-            {
-                <h4 class="fst-italic text-center">قد يعجبك أيضًا</h4>
-                @foreach (var item in Model.Items)
-                {
-                    if (Count <= 3)
-                    {
-                        <div class="list-unstyled mb-4">
-                            <img class="pic-1" src="@Url.Content(item.Image)" style="width:100px">
-                            <p class="title">@item.NameAr</p>
-                            <div class="price">
-                                @item.Price
-                            </div>
-                            <a onclick="location.href='@Url.Action("AddToCart", "Home" , new {id =item.Id , ProductId = item.ProductId})'"><i class="fa fa-shopping-cart"></i></a>
-                        </div>
-                        Count++;
-                    }
-                }
-            }
-            else
-            {
-            }
 
-        </div>
-    </div>
-
-    <div class="col-lg-9">
-        @if (Model.carts != null)
+<div id="CartTable">
+    @if (Model.carts != null)
+    {
+        <h1 class="fst-italic text-lg-right">عربة التسوق</h1>
+        <hr />
+        @foreach (var item in Model.carts)
         {
-            <h1 class="fst-italic text-lg-right">عربة التسوق</h1>
-            <hr />
-            @foreach (var item in Model.carts)
-            {
-                <h1 class="text-lg-left">السعر : @item.Items.Price</h1>
+            <h1 class="text-lg-left">السعر : @item.Items.Price</h1>
 
-                <div class="row" id="@row" data-rowid="@row">
-                    <div class="col-lg-10 text-lg-right">
-                        <h4>@item.Items.NameAr</h4>
-                        <p>مؤهل للحصول على شحن مجاني</p>
-                    </div>
-                    <a><img onclick="DeleteDiscarding(@item.Items.Id)" class="svg-icon" src="~/Image/018-delete.svg" title="delete" style="width: 6%;" /> </a>
-                    <div class="col-lg-2 text-lg-right">
-
-                        <img class="pic-1" src="@Url.Content(item.Items.Image)" style="width:100px">
-                    </div>
+            <div class="row" id="@row" data-rowid="@row">
+                <div class="col-lg-10 text-lg-right">
+                    <h4>@item.Items.NameAr</h4>
+                    <p>مؤهل للحصول على شحن مجاني</p>
                 </div>
-                <hr />
-            }
+                <a><img onclick="DeleteDiscarding(@item.Items.Id)" class="svg-icon" src="~/Image/018-delete.svg" title="delete" style="width: 6%;" /> </a>
+                <div class="col-lg-2 text-lg-right">
+                    <img class="pic-1" src="@Url.Content(item.Items.Image)" style="width:100px">
+                </div>
+            </div>
+            <hr />
         }
-        else
-        {
-            <h1 class="fst-italic text-lg-right">العربة فارغة</h1>
-        }
+    }
+    else
+    {
+        <h1 class="fst-italic text-lg-right">العربة فارغة</h1>
+    }
 
-
-    </div>
 
 </div>
+
 
 <script>
     function DeleteDiscarding(id) {
@@ -114,6 +49,8 @@
                  contentType: 'application/json; charset=utf-8',
                  success: function (data) {
                      debugger;
+                     $("#CartTable").html('');
+                     $("#CartTable").html(data);
                  },
                  error: function (XMLHttpRequest, textStatus, errorThrown) { }
              });

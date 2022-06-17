@@ -45,40 +45,6 @@
     </button>
 </div>
 
-<div class="container my-5">
-    <div class="row">
-        <div class="col-md-4">
-            <div class="thumbnail DivOne">
-                <a href="" target="_blank">
-                    <img src="~/Image/tvs.jpg " alt="Lights" style="width:100%" />
-                </a>
-                <div class="caption">
-                    <i class="HomeBtn btn btn-primary" onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Tvs"})'">View More &#8594;</i>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="thumbnail DivTow">
-                <a href="#" target="_blank">
-                    <img src="~/Image/phones.jpg" alt="Nature" style="width:100%" />
-                </a>
-                <div class="caption">
-                    <i class="HomeBtn btn btn-primary" onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Phones"})'">View More &#8594;</i>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="thumbnail DivTree">
-                <a href="#" target="_blank">
-                    <img src="~/Image/heaters.jpg" alt="Fjords" style="width:100%" />
-                </a>
-                <div class="caption">
-                    <i class="HomeBtn btn btn-primary" onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Cookers"})'">View More &#8594;</i>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 <div class="container DivFore">
     <h3 style="text-align:center">Household_Appliance</h3>
@@ -88,7 +54,7 @@
                 <a href="#" target="_blank">
                     <img src="~/Image/frigerators.jpg" style="width: 100%;">
                     <div class="caption">
-                        <i onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "refrigerators"})'">Partner 1</i>
+                        <i class="HomeBtn btn btn-primary" onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "refrigerators"})'">View More &#8594;</i>
                     </div>
                 </a>
             </div>
@@ -98,7 +64,7 @@
                 <a href="#" target="_blank">
                     <img src="~/Image/washing machines.jpg" style="width: 100%">
                     <div class="caption">
-                        <i onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "washing machines"})'">Partner 2</i>
+                        <i class="HomeBtn btn btn-primary" onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "washing machines"})'">View More &#8594;</i>
                     </div>
                 </a>
             </div>
@@ -108,7 +74,7 @@
                 <a href="#" target="_blank">
                     <img src="~/Image/cookers.jpg" style="width: 75%;">
                     <div class="caption">
-                        <i onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Cookers"})'">Partner 3</i>
+                        <i class="HomeBtn btn btn-primary" onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Cookers"})'">View More &#8594;</i>
                     </div>
                 </a>
             </div>
@@ -118,7 +84,7 @@
                 <a href="#" target="_blank">
                     <img src="~/Image/heaters.jpg" style="width: 100%;">
                     <div class="caption">
-                        <i onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "heaters"})'">Partner 4</i>
+                        <i class="HomeBtn btn btn-primary" onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "heaters"})'">View More &#8594;</i>
                     </div>
                 </a>
             </div>
@@ -126,48 +92,58 @@
     </div>
 </div>
 
-<div class="DivFore my-5">
-    <div class="container">
-        <h3 style="text-align:center">Electronics</h3>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="thumbnail">
-                    <a href="" target="_blank">
-                        <img src="~/Image/laptops.jpg" style="width: 100%;">
 
-                        <div class="caption">
-                            <i onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Laptops"})'">Partner 1</i>
-                        </div>
-                    </a>
-                </div>
+<div class="container DivFore">
+    <h3 style="text-align:center">Electronics</h3>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="thumbnail">
+                <a href="" target="_blank">
+                    <img src="~/Image/laptops.jpg" style="width: 100%;">
+
+                    <div class="caption">
+                        <i class="HomeBtn btn btn-primary" onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Laptops"})'">View More &#8594;</i>
+                    </div>
+                </a>
             </div>
-            <div class="col-md-4">
-                <div class="thumbnail">
-                    <a href="" target="_blank">
-                        <img src="~/Image/tvs.jpg" style="width: 100%;">
-                        <div class="caption">
-                            <i onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Tvs"})'">Partner 2</i>
-                        </div>
-                    </a>
-                </div>
+        </div>
+        <div class="col-md-3">
+            <div class="thumbnail">
+                <a href="" target="_blank">
+                    <img src="~/Image/tvs.jpg" style="width: 100%;">
+                    <div class="caption">
+                        <i class="HomeBtn btn btn-primary" onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Tvs"})'">View More &#8594;</i>
+                    </div>
+                </a>
             </div>
-            <div class="col-md-4">
-                <div class="thumbnail">
-                    <a href="" target="_blank">
-                        <img src="~/Image/accessorie.jpg" style="width: 80%;">
-                        <div class="caption">
-                            <i onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Phones"})'">Partner 3</i>
-                        </div>
-                    </a>
-                </div>
+        </div>
+        <div class="col-md-3">
+            <div class="thumbnail">
+                <a href="" target="_blank">
+                    <img src="~/Image/accessorie.jpg" style="width: 80%;">
+                    <div class="caption">
+                        <i class="HomeBtn btn btn-primary" onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Accessories"})'">View More &#8594;</i>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="thumbnail">
+                <a href="" target="_blank">
+                    <img src="~/Image/phones.jpg" style="width: 80%;">
+                    <div class="caption">
+                        <i class="HomeBtn btn btn-primary" onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Phones"})'">View More &#8594;</i>
+                    </div>
+                </a>
             </div>
         </div>
     </div>
 </div>
 
+
 <div class="DivFore">
     <div class="container">
-        <h2>Slick Carousel Example</h2>
+        <h2> Mobile devices</h2>
         <div class="carousel5">
             <div class="card">
                 <div class="card-header">
@@ -177,14 +153,12 @@
                     <div class="card-content">
                         <div class="card-title">
                             <p>
-                                <i onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Phones"})'">
-                                    This is the First slider
+                                <i   class="HomeBtn btn btn-primary"  onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Phones"})'">
+                                    View More 
                                 </i>
                             </p>
                         </div>
-                        <div class="card-text">
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                        </div>
+                   
                     </div>
                 </div>
             </div>
@@ -196,14 +170,12 @@
                     <div class="card-content">
                         <div class="card-title">
                             <p>
-                                <i onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Phones"})'">
-                                    This is the First slider
+                                <i  class="HomeBtn btn btn-primary"  onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Phones"})'">
+                                    View More
                                 </i>
                             </p>
                         </div>
-                        <div class="card-text">
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                        </div>
+                      
                     </div>
                 </div>
             </div>
@@ -216,14 +188,12 @@
                     <div class="card-content">
                         <div class="card-title">
                             <p>
-                                <i onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Phones"})'">
-                                    This is the First slider
+                                <i  class="HomeBtn btn btn-primary" onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Phones"})'">
+                                    View More
                                 </i>
                             </p>
                         </div>
-                        <div class="card-text">
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                        </div>
+                     
                     </div>
                 </div>
             </div>
@@ -236,14 +206,12 @@
                     <div class="card-content">
                         <div class="card-title">
                             <p>
-                                <i onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Phones"})'">
-                                    This is the First slider
+                                <i  class="HomeBtn btn btn-primary"  onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Phones"})'">
+                                    View More
                                 </i>
                             </p>
                         </div>
-                        <div class="card-text">
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                        </div>
+                      
                     </div>
                 </div>
             </div>
@@ -256,14 +224,12 @@
                     <div class="card-content">
                         <div class="card-title">
                             <p>
-                                <i onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Phones"})'">
-                                    This is the First slider
+                                <i  class="HomeBtn btn btn-primary" onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Phones"})'">
+                                    View More
                                 </i>
                             </p>
                         </div>
-                        <div class="card-text">
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                        </div>
+                       
                     </div>
                 </div>
             </div>
@@ -276,14 +242,12 @@
                     <div class="card-content">
                         <div class="card-title">
                             <p>
-                                <i onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Phones"})'">
-                                    This is the First slider
+                                <i  class="HomeBtn btn btn-primary" onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Phones"})'">
+                                    View More
                                 </i>
                             </p>
                         </div>
-                        <div class="card-text">
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                        </div>
+                    
                     </div>
                 </div>
 
@@ -294,3 +258,536 @@
 
 </div>
 
+<div class="DivFore">
+    <div class="container">
+        <h2> Large Appliances</h2>
+        <div class="carousel5">
+            <div class="card">
+                <div class="card-header">
+                    <img src="~/Image/cook/2.jpg">
+                </div>
+                <div class="card-body">
+                    <div class="card-content">
+                        <div class="card-title">
+                            <p>
+                                <i  class="HomeBtn btn btn-primary" onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Cookers"})'">
+                                    View More
+                                </i>
+                            </p>
+                        </div>
+                    
+                  
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <img src="~/Image/cook/7.jpg">
+                </div>
+                <div class="card-body">
+                    <div class="card-content">
+                        <div class="card-title">
+                            <p>
+                                <i  class="HomeBtn btn btn-primary" onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Cookers"})'">
+                                    View More
+                                </i>
+                            </p>
+                        </div>
+                     
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <img src="~/Image/cook/12.jpg">
+                </div>
+                <div class="card-body">
+                    <div class="card-content">
+                        <div class="card-title">
+                            <p>
+                                <i  class="HomeBtn btn btn-primary" onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Cookers"})'">
+                                    View More
+                                </i>
+                            </p>
+                        </div>
+                   
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <img src="~/Image/cook/15.jpg">
+                </div>
+                <div class="card-body">
+                    <div class="card-content">
+                        <div class="card-title">
+                            <p>
+                                <i  class="HomeBtn btn btn-primary" onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Cookers"})'">
+                                    View More
+                                </i>
+                            </p>
+                        </div>
+             
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <img src="~/Image/heats/3.jpg">
+                </div>
+                <div class="card-body">
+                    <div class="card-content">
+                        <div class="card-title">
+                            <p>
+                                <i  class="HomeBtn btn btn-primary" onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "heaters"})'">
+                                   View More
+                                </i>
+                            </p>
+                        </div>
+                     
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <img src="~/Image/heats/8.jpg">
+                </div>
+                <div class="card-body">
+                    <div class="card-content">
+                        <div class="card-title">
+                            <p>
+                                <i  class="HomeBtn btn btn-primary" onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "heaters"})'">
+                                    View More
+                                </i>
+                            </p>
+                        </div>
+                     
+                    </div>
+                </div>
+
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <img src="~/Image/Refrigerators/5.jpg">
+                </div>
+                <div class="card-body">
+                    <div class="card-content">
+                        <div class="card-title">
+                            <p>
+                                <i  class="HomeBtn btn btn-primary" onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "refrigerators"})'">
+                                    View More
+                                </i>
+                            </p>
+                        </div>
+                
+                    </div>
+                </div>
+
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <img src="~/Image/Refrigerators/22.jpg">
+                </div>
+                <div class="card-body">
+                    <div class="card-content">
+                        <div class="card-title">
+                            <p>
+                                <i  class="HomeBtn btn btn-primary" onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "refrigerators"})'">
+                                    View More
+                                </i>
+                            </p>
+                        </div>
+                   
+                    </div>
+                </div>
+
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <img src="~/Image/wash/2.jpg">
+                </div>
+                <div class="card-body">
+                    <div class="card-content">
+                        <div class="card-title">
+                            <p>
+                                <i  class="HomeBtn btn btn-primary" onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "washing machines"})'">
+                                    View More
+                                </i>
+                            </p>
+                        </div>
+                 
+                    </div>
+                </div>
+
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <img src="~/Image/wash/17.jpg">
+                </div>
+                <div class="card-body">
+                    <div class="card-content">
+                        <div class="card-title">
+                            <p>
+                                <i  class="HomeBtn btn btn-primary" onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "washing machines"})'">
+                                    View More
+                                </i>
+                            </p>
+                        </div>
+                
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="DivFore">
+    <div class="container">
+        <h2> Top picks in labtops& tvs</h2>
+        <div class="carousel5">
+            <div class="card">
+                <div class="card-header">
+                    <img src="~/Image/lap/4.jpg">
+                </div>
+                <div class="card-body">
+                    <div class="card-content">
+                        <div class="card-title">
+                            <p>
+                                <i  class="HomeBtn btn btn-primary" onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Laptops"})'">
+                                    View More
+                                </i>
+                            </p>
+                        </div>
+                      
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <img src="~/Image/lap/10.jpg">
+                </div>
+                <div class="card-body">
+                    <div class="card-content">
+                        <div class="card-title">
+                            <p>
+                                <i  class="HomeBtn btn btn-primary" onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Laptops"})'">
+                                    View More
+                                </i>
+                            </p>
+                        </div>
+           
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <img src="~/Image/lap/2.jpg">
+                </div>
+                <div class="card-body">
+                    <div class="card-content">
+                        <div class="card-title">
+                            <p>
+                                <i  class="HomeBtn btn btn-primary" onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Laptops"})'">
+                                    View More
+                                </i>
+                            </p>
+                        </div>
+                      
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <img src="~/Image/lap/12.jpg">
+                </div>
+                <div class="card-body">
+                    <div class="card-content">
+                        <div class="card-title">
+                            <p>
+                                <i  class="HomeBtn btn btn-primary" onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Laptops"})'">
+                                    View More
+                                </i>
+                            </p>
+                        </div>
+                      
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <img src="~/Image/TV/8.jpg">
+                </div>
+                <div class="card-body">
+                    <div class="card-content">
+                        <div class="card-title">
+                            <p>
+                                <i  class="HomeBtn btn btn-primary" onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Tvs"})'">
+                                    View More
+                                </i>
+                            </p>
+                        </div>
+                    
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <img src="~/Image/TV/11.jpg">
+                </div>
+                <div class="card-body">
+                    <div class="card-content">
+                        <div class="card-title">
+                            <p>
+                                <i  class="HomeBtn btn btn-primary" onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Tvs"})'">
+                                    View More
+                                </i>
+                            </p>
+                        </div>
+                   
+                    </div>
+                </div>
+
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <img src="~/Image/TV/4led.jpg">
+                </div>
+                <div class="card-body">
+                    <div class="card-content">
+                        <div class="card-title">
+                            <p>
+                                <i  class="HomeBtn btn btn-primary" onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Tvs"})'">
+                                    View More
+                                </i>
+                            </p>
+                        </div>
+                   
+                    </div>
+                </div>
+
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <img src="~/Image/TV/15.jpg">
+                </div>
+                <div class="card-body">
+                    <div class="card-content">
+                        <div class="card-title">
+                            <p>
+                                <i  class="HomeBtn btn btn-primary" onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Tvs"})'">
+                                    View More
+                                </i>
+                            </p>
+                        </div>
+                 
+                    </div>
+                </div>
+
+            </div>
+            
+        </div>
+
+    </div>
+
+</div>
+
+<div class="DivFore">
+    <div class="container">
+        <h2> Best Seller</h2>
+        <div class="carousel5">
+            <div class="card">
+                <div class="card-header">
+                    <img src="~/Image/lap/4.jpg">
+                </div>
+                <div class="card-body">
+                    <div class="card-content">
+                        <div class="card-title">
+                            <p>
+                                <i  class="HomeBtn btn btn-primary" onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Laptops"})'">
+                                    View More
+                                </i>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <img src="~/Image/lap/5.jpg">
+                </div>
+                <div class="card-body">
+                    <div class="card-content">
+                        <div class="card-title">
+                            <p>
+                                <i  class="HomeBtn btn btn-primary" onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Laptops"})'">
+                                    View More
+                                </i>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <img src="~/Image/accessories/3.jpg">
+                </div>
+                <div class="card-body">
+                    <div class="card-content">
+                        <div class="card-title">
+                            <p>
+                                <i  class="HomeBtn btn btn-primary" onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Accessories"})'">
+                                    View More
+                                </i>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <img src="~/Image/accessories/30.jpg">
+                </div>
+                <div class="card-body">
+                    <div class="card-content">
+                        <div class="card-title">
+                            <p>
+                                <i  class="HomeBtn btn btn-primary" onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Accessories"})'">
+                                    View More
+                                </i>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <img src="~/Image/TV/8.jpg">
+                </div>
+                <div class="card-body">
+                    <div class="card-content">
+                        <div class="card-title">
+                            <p>
+                                <i  class="HomeBtn btn btn-primary" onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Tvs"})'">
+                                    View More
+                                </i>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <img src="~/Image/TV/3led.jpg">
+                </div>
+                <div class="card-body">
+                    <div class="card-content">
+                        <div class="card-title">
+                            <p>
+                                <i  class="HomeBtn btn btn-primary" onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Tvs"})'">
+                                    View More
+                                </i>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <img src="~/Image/mob/10.jpg">
+                </div>
+                <div class="card-body">
+                    <div class="card-content">
+                        <div class="card-title">
+                            <p>
+                                <i  class="HomeBtn btn btn-primary"  onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Phones"})'">
+                                    View More
+                                </i>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <img src="~/Image/mob/16.jpg">
+                </div>
+                <div class="card-body">
+                    <div class="card-content">
+                        <div class="card-title">
+                            <p>
+                                <i  class="HomeBtn btn btn-primary" onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Phones"})'">
+                                    View More
+                                </i>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <img src="~/Image/cook/12.jpg">
+                </div>
+                <div class="card-body">
+                    <div class="card-content">
+                        <div class="card-title">
+                            <p>
+                                <i  class="HomeBtn btn btn-primary" onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Cookers"})'">
+                                    View More
+                                </i>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <img src="~/Image/cook/7.jpg">
+                </div>
+                <div class="card-body">
+                    <div class="card-content">
+                        <div class="card-title">
+                            <p>
+                                <i  class="HomeBtn btn btn-primary" onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Cookers"})'">
+                                    View More
+                                </i>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>

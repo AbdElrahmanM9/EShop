@@ -38,29 +38,36 @@
                         <li class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#212529">Products</a>
                             <ul class="dropdown-menu multi-level">
-                                <li class="dropdown-item"><a href="#">Electronics</a></li>
-                                <li class="dropdown-item"><a href="#">Phones</a></li>
+
+
                                 <li class="dropdown-submenu dropdown">
-                                    <a class="dropdown-toggle" id="dropdown2-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#212529">Household_Appliance</a>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdown2-1">
-                                        <li class="dropdown-item"><a href="#">Action</a></li>
-                                        <li class="dropdown-item"><a href="#">Action</a></li>
-                                        <li class="dropdown-item"><a href="#">Action</a></li>
+                                    <a class="dropdown-item" id="dropdown2-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#ee086b">Electronics</a>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdown2-1" >
+                                        <li class="dropdown-item" style="color:#090d83" onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Tvs"})'">TVs</li>
+                                        <li class="dropdown-item" style="color:#090d83" onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Laptops"})'">Laps</li>
+
                                     </ul>
                                 </li>
+                                <li class="dropdown-submenu dropdown">
+                                    <a class="dropdown-item" id="dropdown2-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#ee086b">Household_Appliance</a>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdown2-1" >
+                                        <li class="dropdown-item" style="color:#090d83" onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "refrigerators"})'">Refrigerators</li>
+                                        <li class="dropdown-item" style="color:#090d83" onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "washing machines"})'">Washing Machines</li>
+                                        <li class="dropdown-item" style="color:#090d83" onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Cookers"})'">Cookers</li>
+                                        <li class="dropdown-item" style="color:#090d83" onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "heaters"})'">Heaters</li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-item" style="color:#ee086b" onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Phones"})'">Mobile devices</li>
+                                <li class="dropdown-item" style="color:#ee086b"  onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Accessories"})'">Accessories </li>
                             </ul>
                         </li>
+                
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">About</a>
+                            <a class="nav-link text-dark" href="~/Cart/_StatusOrder"  >Account_Balance</a>
                         </li>
+                   
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Contact</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Contact</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="~/Cart/_Cart">
+                            <a class="nav-link" href="~/Cart/Index">
                                 <i class="fa-solid fa-cart-shopping"></i>
                             </a>
                         </li>
@@ -75,53 +82,62 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
+    <footer class="border-top footer text-muted" style="color:#ffd800">
+        <div class="container" style="color:#dbd4d4">
             <div class="row">
-                <div class="col col-4">
-                    <h3>Download Our App</h3>
-                    <p>Download App for Android and ios mobile phone.</p>
-                    <div class="app-logo">
-                        <img src="~/Image/play-store.png" />
-                        <img src="~/Image/app-store.png" />
-                    </div>
-
+                <div class="col-md-3" style="margin-left: 0px; text-align: left;">
+                    <h3>Contact</h3>
+                    <h5>About us</h5>
+                    <h5>HotLine: 12345</h5>
+                    <h5>email@shopmail.com</h5>
                 </div>
 
-                <div class="col col-4">
-                    <h3>Useful links</h3>
-                    <ul>
-                        <li><a class="fst-italic" href="~/Cart/_StatusOrder" style="color: #6a6d76">Track the status of the order</a></li>
-                        <li>Coupons</li>
-                        <li>Blog Post</li>
-                        <li>Return Policy</li>
-                        <li>Join Affiliate</li>
-                    </ul>
+                <div class="col col-3">
+                    <h3>Household_App</h3>
+                    <a onclick="location.href = '@Url.Action("MoreDetials", "Home" , new {NameEn = "washing machines"})'" style="color: #dbd4d4">Washing Machines</a>
+                    <br />
+                    <a onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "refrigerators"})'" style="color: #dbd4d4">Refrigerators&deep freezer</a>
+                    <br />
+                    <a onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Cookers"})'" style="color: #dbd4d4">Cookers</a>
+                    <br />
+                    <a onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "heaters"})'" style="color: #dbd4d4">Heaters</a>
                 </div>
-                <div class="col col-4">
-                    <h3>Follows us</h3>
-                    <ul>
-                        <li>Facebook</li>
-                        <li> Twitter</li>
-                        <li>Instagram</li>
-                        <li>YouTube</li>
-
-                    </ul>
+                <div class="col col-3">
+                    <h3>Electronics</h3>
+                    <a onclick="location.href = '@Url.Action("MoreDetials", "Home" , new {NameEn = "Tvs"})'" style="color: #dbd4d4">TVs</a>
+                    <br />
+                    <a onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Laptops"})'" style="color: #dbd4d4">Laptops</a>
+                    <br />
+                    <a onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Accessories"})'" style="color: #dbd4d4">Accessories</a>
+                    <br />
+                    <a onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Phones"})'" style="color: #dbd4d4">Phones</a>
+                </div>
+                <div class="col col-3">
+                    <h3>Best Seller</h3>
+                    <a onclick="location.href = '@Url.Action("MoreDetials", "Home" , new {NameEn = "Tvs"})'" style="color: #dbd4d4">TVs</a>
+                    <br />
+                    <a onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Phones"})'" style="color: #dbd4d4">Phones</a>
+                    <br />
+                    <a onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Accessories"})'" style="color: #dbd4d4">Accessories</a>
+                    <br />
+                    <a onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Laptops"})'" style="color: #dbd4d4">Laptops</a>
+                    <br />
+                    <a onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Cookers"})'" style="color: #dbd4d4">Cookers</a>
                 </div>
             </div>
             <div class="row">
                 <div class="footer-col-2 col col-12" style="text-align:center !important">
                     <img src="~/Image/logo.png" width="50" />
-                    <p>
+                    <p style="color: #dbd4d4">
                         Our Purpose Is To Sustainably Make the Pleasure and Benefits
                         of Sports Accessible to the Many.
                     </p>
-                    <p class="copyright">Copyright 2020 - Easy Tutorials</p>
+                    <p class="copyright" style="color:#dbd4d4">Copyright 2020 - Easy Tutorials</p>
                     <hr />
                 </div>
             </div>
 
-            &copy; 2022 - EShop_Gp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2022 - EShop_Gp -Privacy
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>

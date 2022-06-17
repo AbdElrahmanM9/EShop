@@ -279,6 +279,19 @@ namespace EShop_Gp.Controllers
             _Context.SaveChanges();
             return RedirectToAction("Home");
         }
+        public ActionResult DeleteItemByAdmin(int Id)
+        {
+            Items Items = new Items();
+            Items = _Context.Items.FirstOrDefault(X => X.Id == Id);
+
+            Items.IsActive = false;
+            Items.IsDeleted = true;
+            Items.FlagRequest = false;
+
+            _Context.Entry(Items).CurrentValues.SetValues(Items);
+            _Context.SaveChanges();
+            return RedirectToAction("Index", "Admin");
+        }
         public JsonResult SaveAddress(UserDataViewModel UserDataV)
         {
             var UserN = User.Identity.Name;

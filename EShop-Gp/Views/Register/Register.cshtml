@@ -28,7 +28,7 @@
     .screen {
         background: linear-gradient(90deg, #dcdceb, #122fcf);
         position: relative;
-        height: 600px;
+        height: 690px;
         width: 360px;
         box-shadow: 0px 0px 24px #5C5696;
     }
@@ -214,6 +214,12 @@
                                         @Html.TextBoxFor(m => m.Phonenumber, new { @class = "login__input", @placeholder = "Phone Number", @type = "Phonenumber", @Id = "Phonenumber" })
                                         @Html.ValidationMessageFor(m => m.Phonenumber, "", new { @class = "text-danger" })
                                     </div>
+                                    @if (ViewBag.Error != null)
+                                    {
+                                        <div class="login__field">
+                                            <p style="color:red">@ViewBag.Error</p>
+                                        </div>
+                                    }
                                     <div class="form-group">
                                         <input type="submit" name="submit" class="button login__submit" value="Register" />
                                     </div>
