@@ -52,10 +52,15 @@ namespace EShop_Gp.Areas.Identity.Account
                 {
                     ModelState.AddModelError("", error.Description);
                 }
+                ViewBag.Error = "Invalid Login Attempt";
 
                 ModelState.AddModelError(string.Empty, "Invalid Login Attempt");
 
             }
+
+            ViewBag.Error = "The password and confirmation password do not match";
+
+            ModelState.AddModelError(string.Empty, "The password and confirmation password do not match");
             return View(model);
         }
     }

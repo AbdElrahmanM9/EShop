@@ -83,14 +83,134 @@ namespace EShop_Gp.Controllers
             {
                 return new StatusCodeResult((int)HttpStatusCode.BadRequest);
             }
+            ItemsList ItemList = new ItemsList();
+
+            ItemList.Item = _Context.Items.FirstOrDefault(c => c.Id == id);
+            ItemList.Items = _Context.Items.Where(x => x.ProductId == ItemList.Item.ProductId).Take(7).ToList();
+
             var Products = _Context.Items.FirstOrDefault(c => c.Id == id);
-            if (Products == null)
+
+            if (ItemList.Item == null)
             {
                 return NotFound();
             }
-            return PartialView(Products);
+            int Count = 1;
+            //var Itemid = _Context.Items.FirstOrDefault(c => c.ProductId == Id);
+            //var Pro = _Context.Items.Where(x => x.ProductId == id).Take(7).ToList();
+            Slid Slid = new Slid();
+
+            foreach (var item in ItemList.Items)
+            {
+                if (Count == 1)
+                {
+                    Slid.Name1 = item.NameAr;
+                    Slid.Img1 = item.Image;
+                    Slid.Price1 = item.Price;
+                }
+                if (Count == 2)
+                {
+                    Slid.Name2 = item.NameAr;
+                    Slid.Img2 = item.Image;
+                    Slid.Price2 = item.Price;
+                }
+                if (Count == 3)
+                {
+                    Slid.Name3 = item.NameAr;
+                    Slid.Img3 = item.Image;
+                    Slid.Price3 = item.Price;
+                }
+                if (Count == 4)
+                {
+                    Slid.Name4 = item.NameAr;
+                    Slid.Img4 = item.Image;
+                    Slid.Price4 = item.Price;
+                }
+                if (Count == 5)
+                {
+                    Slid.Name5 = item.NameAr;
+                    Slid.Img5 = item.Image;
+                    Slid.Price5 = item.Price;
+                }
+                if (Count == 6)
+                {
+                    Slid.Name6 = item.NameAr;
+                    Slid.Img6 = item.Image;
+                    Slid.Price6 = item.Price;
+                }
+                if (Count == 7)
+                {
+                    Slid.Name7 = item.NameAr;
+                    Slid.Img7 = item.Image;
+                    Slid.Price7 = item.Price;
+                }
+                Count++;
+            }
+            Slid.ProductId = ItemList.Item.ProductId;
+            ItemList.Slid = Slid;
+
+            return PartialView(ItemList);
         }
-        public ActionResult AddToCart(int id,int ProductId)
+        public ActionResult _slid(int? Id)
+        {
+            if (Id == null)
+            {
+                return new StatusCodeResult((int)HttpStatusCode.BadRequest);
+            }
+            Slid Slid = new Slid();
+            int Count = 1;
+            //var Itemid = _Context.Items.FirstOrDefault(c => c.ProductId == Id);
+            var Pro = _Context.Items.Where(x => x.ProductId == Id).Take(7).ToList();
+            Slid.ProductId = Id.Value;
+            foreach (var item in Pro)
+            {
+                if (Count == 1)
+                {
+                    Slid.Name1 = item.NameAr;
+                    Slid.Img1 = item.Image;
+                    Slid.Price1 = item.Price;
+                }
+                if (Count == 2)
+                {
+                    Slid.Name2 = item.NameAr;
+                    Slid.Img2 = item.Image;
+                    Slid.Price2 = item.Price;
+                }
+                if (Count == 3)
+                {
+                    Slid.Name3 = item.NameAr;
+                    Slid.Img3 = item.Image;
+                    Slid.Price3 = item.Price;
+                }
+                if (Count == 4)
+                {
+                    Slid.Name4 = item.NameAr;
+                    Slid.Img4 = item.Image;
+                    Slid.Price4 = item.Price;
+                }
+                if (Count == 5)
+                {
+                    Slid.Name5 = item.NameAr;
+                    Slid.Img5 = item.Image;
+                    Slid.Price5 = item.Price;
+                }
+                if (Count == 6)
+                {
+                    Slid.Name6 = item.NameAr;
+                    Slid.Img6 = item.Image;
+                    Slid.Price6 = item.Price;
+                }
+                if (Count == 7)
+                {
+                    Slid.Name7 = item.NameAr;
+                    Slid.Img7 = item.Image;
+                    Slid.Price7 = item.Price;
+                }
+                Count++;
+            }
+
+            return PartialView(Slid);
+        }
+        public ActionResult AddToCart(int id, int ProductId)
         {
             var UserN = User.Identity.Name;
             var UserId = _Context.Users.FirstOrDefault(x => x.UserName == UserN);
@@ -137,7 +257,7 @@ namespace EShop_Gp.Controllers
 
                 var ItemsModel = new ItemsList
                 {
-                    Items = _Context.Items.Where(x=>x.IsActive == true && x.IsDeleted == false).ToList(),
+                    Items = _Context.Items.Where(x => x.IsActive == true && x.IsDeleted == false).ToList(),
                 };
 
                 return PartialView("_AllItems", ItemsModel);
@@ -151,11 +271,11 @@ namespace EShop_Gp.Controllers
         public async Task<IActionResult> Search(string searchString)
         {
             var Items = from m in _Context.Items
-                         select m;
+                        select m;
 
             if (!string.IsNullOrEmpty(searchString))
             {
-                Items = Items.Where(s => s.NameAr.Contains(searchString)|| s.NameEn.Contains(searchString)|| s.Description.Contains(searchString));
+                Items = Items.Where(s => s.NameAr.Contains(searchString) || s.NameEn.Contains(searchString) || s.Description.Contains(searchString));
             }
 
             var ItemsModel = new ItemsList

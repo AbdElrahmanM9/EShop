@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "G:\\AbdElrahman\\Project\\EShop-Gp\\EShop-Gp\\EShop-Gp.csproj": {}
+    "D:\\ASP.NET\\Projects\\EShop\\EShop-Gp\\EShop-Gp.csproj": {}
   },
   "projects": {
-    "G:\\AbdElrahman\\Project\\EShop-Gp\\EShop-Gp\\EShop-Gp.csproj": {
+    "D:\\ASP.NET\\Projects\\EShop\\EShop-Gp\\EShop-Gp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\AbdElrahman\\Project\\EShop-Gp\\EShop-Gp\\EShop-Gp.csproj",
+        "projectUniqueName": "D:\\ASP.NET\\Projects\\EShop\\EShop-Gp\\EShop-Gp.csproj",
         "projectName": "EShop-Gp",
-        "projectPath": "G:\\AbdElrahman\\Project\\EShop-Gp\\EShop-Gp\\EShop-Gp.csproj",
-        "packagesPath": "C:\\Users\\Negm\\.nuget\\packages\\",
-        "outputPath": "G:\\AbdElrahman\\Project\\EShop-Gp\\EShop-Gp\\obj\\",
+        "projectPath": "D:\\ASP.NET\\Projects\\EShop\\EShop-Gp\\EShop-Gp.csproj",
+        "packagesPath": "C:\\Users\\Abd El-Rahman\\.nuget\\packages\\",
+        "outputPath": "D:\\ASP.NET\\Projects\\EShop\\EShop-Gp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Negm\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Abd El-Rahman\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -83,6 +83,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[3.1.25, 3.1.25]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -91,7 +97,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.405\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
         }
       }
     }

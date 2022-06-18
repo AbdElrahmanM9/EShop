@@ -38,29 +38,34 @@ namespace EShop_Gp.Areas.Identity.Account
             if (ModelState.IsValid)
             {
                 var User =await _userManager.FindByEmailAsync(user.Email);
-                var result = await _signInManager.CheckPasswordSignInAsync(User, user.Password,false);
-
-                if (result.Succeeded)
+                if (User != null)
                 {
-                    await _signInManager.SignInAsync(User, isPersistent: false);
-                    
-                    var UserId = _Context.User.FirstOrDefault(x => x.Email == user.Email);
-                    if (UserId.Type == "Admin")
+                    var result = await _signInManager.CheckPasswordSignInAsync(User, user.Password, false);
+
+                    if (result.Succeeded)
                     {
-                        return RedirectToAction("Index", "Admin");
-                    }
-                    else if (UserId.Type == "Supplier")
-                    {
-                        return RedirectToAction("Index", "Supplier");
-                    }
-                    else
-                    {
-                        return RedirectToAction("Index", "Home");
+                        await _signInManager.SignInAsync(User, isPersistent: false);
+
+                        var UserId = _Context.User.FirstOrDefault(x => x.Email == user.Email);
+                        if (UserId.Type == "Admin")
+                        {
+                            return RedirectToAction("Index", "Admin");
+                        }
+                        else if (UserId.Type == "Supplier")
+                        {
+                            return RedirectToAction("Index", "Supplier");
+                        }
+                        else
+                        {
+                            return RedirectToAction("Index", "Home");
+                        }
                     }
                 }
-                ViewBag.Error = "Invalid Login Attempt";
-                ModelState.AddModelError(string.Empty, "Invalid Login Attempt");
-
+                else
+                {
+                    ViewBag.Error = "User Not Found";
+                    ModelState.AddModelError(string.Empty, "User Not Found");
+                }
             }
             return View(user);
         }

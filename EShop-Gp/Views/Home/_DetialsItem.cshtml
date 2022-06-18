@@ -1,4 +1,4 @@
-﻿@model EShop_Gp.Models.Items
+﻿@model EShop_Gp.ViewModel.ItemsList
 
 @{
     ViewBag.Title = "Detials Item";
@@ -8,30 +8,159 @@
 <div>
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.NameAr)
+            @Html.DisplayNameFor(model => model.Item.NameEn))
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.NameAr)
+            @Html.DisplayFor(model => model.Item.NameAr))
         </dd>
         <dd>
-            <img style="height:200px; width:200px;" src="@Url.Content(Model.Image)" alt="Sample Image" />
+            <img class="pic-1" src="@Url.Content(Model.Item.Image)" style="width:100px">
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Price)
+            @Html.DisplayNameFor(model => model.Item.Price)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Price)
+            @Html.DisplayFor(model => model.Item.Price)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Description)
+            @Html.DisplayNameFor(model => model.Item.Description)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Description)
+            @Html.DisplayFor(model => model.Item.Description)
         </dd>
 
     </dl>
+</div>
+
+<div class="DivFore">
+    <div class="container">
+        <h2>منتجات قد تعجبك</h2>
+        <div class="carousel5">
+            <div class="card">
+                <div class="card-header">
+                    <img class="pic-1" src="@Url.Content(Model.Slid.Img1)" style="width:100px">
+                </div>
+                <div class="card-body">
+                    <div class="card-content">
+                        <div class="card-title">
+                            <p>
+                                <i onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Phones"})'">
+                                    <a>@Model.Slid.Name1).First()</a>
+                                </i>
+                            </p>
+                        </div>
+                        <div class="card-text">
+                            <h1 class="text-lg-left">السعر : @Model.Slid.Price1</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <img class="pic-1" src="@Url.Content(Model.Slid.Img2)" style="width:100px">
+                </div>
+                <div class="card-body">
+                    <div class="card-content">
+                        <div class="card-title">
+                            <p>
+                                <i onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Phones"})'">
+                                    <a>@Model.Slid.Name2</a>
+                                </i>
+                            </p>
+                        </div>
+                        <div class="card-text">
+                            <h1 class="text-lg-left">السعر : @Model.Slid.Price2</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <img class="pic-1" src="@Url.Content(Model.Slid.Img3)" style="width:100px">
+                </div>
+                <div class="card-body">
+                    <div class="card-content">
+                        <div class="card-title">
+                            <p>
+                                <i onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Phones"})'">
+                                    <a>@Model.Slid.Name3</a>
+                                </i>
+                            </p>
+                        </div>
+                        <div class="card-text">
+                            <h1 class="text-lg-left">السعر : @Model.Slid.Price3</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <img class="pic-1" src="@Url.Content(Model.Slid.Img4)" style="width:100px">
+                </div>
+                <div class="card-body">
+                    <div class="card-content">
+                        <div class="card-title">
+                            <p>
+                                <i onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Phones"})'">
+                                    <a>@Model.Slid.Name4</a>
+                                </i>
+                            </p>
+                        </div>
+                        <div class="card-text">
+                            <h1 class="text-lg-left">السعر : @Model.Slid.Price4</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <img class="pic-1" src="@Url.Content(Model.Slid.Img5)" style="width:100px">
+                </div>
+                <div class="card-body">
+                    <div class="card-content">
+                        <div class="card-title">
+                            <p>
+                                <i onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Phones"})'">
+                                    <a>@Model.Slid.Name5</a>
+                                </i>
+                            </p>
+                        </div>
+                        <div class="card-text">
+                            <h1 class="text-lg-left">السعر : @Model.Slid.Price5</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <img class="pic-1" src="@Url.Content(Model.Slid.Img6)" style="width:100px">
+                </div>
+                <div class="card-body">
+                    <div class="card-content">
+                        <div class="card-title">
+                            <p>
+                                <i onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Phones"})'">
+                                    <a>@Model.Slid.Name6</a>
+                                </i>
+                            </p>
+                        </div>
+                        <div class="card-text">
+                            <h1 class="text-lg-left">السعر : @Model.Slid.Price6</h1>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
 </div>
