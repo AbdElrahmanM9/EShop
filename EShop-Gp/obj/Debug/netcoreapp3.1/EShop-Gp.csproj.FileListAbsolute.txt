@@ -944,7 +944,6 @@ G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\bin\Debug\netcoreapp3.1\refs\System.Col
 G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\bin\Debug\netcoreapp3.1\refs\System.Collections.dll
 G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\bin\Debug\netcoreapp3.1\refs\System.Collections.NonGeneric.dll
 G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\bin\Debug\netcoreapp3.1\refs\System.Collections.Specialized.dll
-G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\bin\Debug\netcoreapp3.1\refs\System.ComponentModel.Annotations.dll
 G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\bin\Debug\netcoreapp3.1\refs\System.ComponentModel.DataAnnotations.dll
 G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\bin\Debug\netcoreapp3.1\refs\System.ComponentModel.dll
 G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\bin\Debug\netcoreapp3.1\refs\System.ComponentModel.EventBasedAsync.dll
@@ -1101,8 +1100,6 @@ G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\bin\Debug\netcoreapp3.1\Microsoft.AspNe
 G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
 G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.dll
 G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Razor.Language.dll
-G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
-G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
 G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.dll
 G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.dll
 G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.Razor.dll
@@ -1114,9 +1111,7 @@ G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\bin\Debug\netcoreapp3.1\Microsoft.Entit
 G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
 G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
 G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
-G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
 G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
-G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
 G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
 G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
@@ -1167,13 +1162,6 @@ G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\bin\Debug\netcoreapp3.1\ru\Microsoft.Co
 G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
 G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
 G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
-G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
-G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
-G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
-G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
-G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
-G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
-G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\obj\Debug\netcoreapp3.1\EShop-Gp.GeneratedMSBuildEditorConfig.editorconfig
 G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\obj\Debug\netcoreapp3.1\EShop-Gp.AssemblyInfoInputs.cache
@@ -1227,7 +1215,6 @@ G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\obj\Debug\netcoreapp3.1\EShop-Gp.dll
 G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\obj\Debug\netcoreapp3.1\EShop-Gp.pdb
 G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\obj\Debug\netcoreapp3.1\EShop-Gp.genruntimeconfig.cache
 G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\obj\Debug\netcoreapp3.1\Razor\Views\Supplier\MyProductApproval.cshtml.g.cs
-G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\obj\Debug\netcoreapp3.1\EShop-Gp.csproj.AssemblyReference.cache
 G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\obj\Debug\netcoreapp3.1\Razor\Views\Admin\_CartUsersData.cshtml.g.cs
 G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\obj\Debug\netcoreapp3.1\Razor\Views\Admin\_UsersPage.cshtml.g.cs
 G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\obj\Debug\netcoreapp3.1\Razor\Views\Cart\_StatusOrder.cshtml.g.cs
@@ -2061,3 +2048,18 @@ C:\Users\AYA\Desktop\GP\EShop\EShop-Gp\obj\Debug\netcoreapp3.1\EShop-Gp.csproj.C
 C:\Users\AYA\Desktop\GP\EShop\EShop-Gp\obj\Debug\netcoreapp3.1\EShop-Gp.dll
 C:\Users\AYA\Desktop\GP\EShop\EShop-Gp\obj\Debug\netcoreapp3.1\EShop-Gp.pdb
 C:\Users\AYA\Desktop\GP\EShop\EShop-Gp\obj\Debug\netcoreapp3.1\EShop-Gp.genruntimeconfig.cache
+G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\bin\Debug\netcoreapp3.1\refs\Microsoft.Extensions.Configuration.Binder.dll
+G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\bin\Debug\netcoreapp3.1\refs\Microsoft.Extensions.Configuration.dll
+G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\bin\Debug\netcoreapp3.1\System.ComponentModel.Annotations.dll
+G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.pdb
+G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.pdb
+G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.pdb
+G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
+G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+G:\AbdElrahman\Project\EShop-Gp\EShop-Gp\obj\Debug\netcoreapp3.1\Razor\Views\Home\_Slid.cshtml.g.cs
