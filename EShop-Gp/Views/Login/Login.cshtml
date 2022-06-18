@@ -194,7 +194,7 @@
                                 {
                                     @Html.AntiForgeryToken()
                                     <div class="login__field">
-                                        @Html.TextBoxFor(m => m.Email, "", new { @class = "login__input", @placeholder = "Email", @Id = "Email" })
+                                        @Html.TextBoxFor(m => m.Email, "", new { @class = "login__input", @placeholder = "User Name", @Id = "Email" })
                                         @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="login__field">

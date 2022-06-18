@@ -6273,19 +6273,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\AYA\\.nuget\\packages\\": {}
+    "C:\\Users\\Negm\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\AYA\\source\\repos\\EShop\\EShop-Gp\\EShop-Gp.csproj",
+      "projectUniqueName": "G:\\AbdElrahman\\Project\\EShop-Gp\\EShop-Gp\\EShop-Gp.csproj",
       "projectName": "EShop-Gp",
-      "projectPath": "C:\\Users\\AYA\\source\\repos\\EShop\\EShop-Gp\\EShop-Gp.csproj",
-      "packagesPath": "C:\\Users\\AYA\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\AYA\\source\\repos\\EShop\\EShop-Gp\\obj\\",
+      "projectPath": "G:\\AbdElrahman\\Project\\EShop-Gp\\EShop-Gp\\EShop-Gp.csproj",
+      "packagesPath": "C:\\Users\\Negm\\.nuget\\packages\\",
+      "outputPath": "G:\\AbdElrahman\\Project\\EShop-Gp\\EShop-Gp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\AYA\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Negm\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

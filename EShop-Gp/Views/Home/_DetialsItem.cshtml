@@ -1,4 +1,4 @@
-﻿@model EShop_Gp.ViewModel.ItemsList
+﻿@model EShop_Gp.Models.Items
 
 @{
     ViewBag.Title = "Detials Item";
@@ -8,194 +8,30 @@
 <div>
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Item.NameEn))
+            @Html.DisplayNameFor(model => model.NameAr)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Item.NameAr))
+            @Html.DisplayFor(model => model.NameAr)
         </dd>
         <dd>
-            <img style="height:200px; width:200px;" src="@Url.Content(Model.Item.Image))" alt="Sample Image" />
+            <img style="height:200px; width:200px;" src="@Url.Content(Model.Image)" alt="Sample Image" />
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Item.Price)
+            @Html.DisplayNameFor(model => model.Price)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Item.Price)
+            @Html.DisplayFor(model => model.Price)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Item.Description)
+            @Html.DisplayNameFor(model => model.Description)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Item.Description)
+            @Html.DisplayFor(model => model.Description)
         </dd>
 
     </dl>
-</div>
-
-@*@foreach (var item in Model.Items)
-{
-    <div class="DivFore">
-        <div class="container">
-
-            <div class="carousel5">
-                <div class="card">
-
-                    <div class="card-header">
-                        <img class="pic-1" src="@Url.Content(item.Image)" style="width:100px">
-                    </div>
-                    <div class="card-body">
-                        <div class="card-content">
-                            <div class="card-title">
-                                <p>
-                                    <i onclick="location.href='@Url.Action("MoreDetials", "Home", new { NameEn = item.NameEn })'">
-                                        <h4>@item.NameAr</h4>
-                                    </i>
-                                </p>
-                            </div>
-                            <div class="card-text">
-                                <h1 class="text-lg-left">السعر : @item.Price</h1>
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-}*@
-
-<div class="DivFore">
-    <div class="container">
-        <h2>منتجات قد تعجبك</h2>
-        <div class="carousel5">
-            <div class="card">
-                <div class="card-header">
-                    <img class="pic-1" src="@Url.Content(Model.Items.Take(1).Select(x=>x.Image).First())" style="width:100px">
-                </div>
-                <div class="card-body">
-                    <div class="card-content">
-                        <div class="card-title">
-                            <p>
-                                <i onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Phones"})'">
-                                    <a>@Model.Items.Take(1).Select(x => x.NameAr).First()</a>
-                                </i>
-                            </p>
-                        </div>
-                        <div class="card-text">
-                            <h1 class="text-lg-left">السعر : @Model.Items.Take(1).Select(x => x.Price).First()</h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-header">
-                    <img class="pic-1" src="@Url.Content(Model.Items.Take(2).Select(x=>x.Image).First())" style="width:100px">
-                </div>
-                <div class="card-body">
-                    <div class="card-content">
-                        <div class="card-title">
-                            <p>
-                                <i onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Phones"})'">
-                                    <a>@Model.Items.Take(2).Select(x => x.NameAr).First()</a>
-                                </i>
-                            </p>
-                        </div>
-                        <div class="card-text">
-                            <h1 class="text-lg-left">السعر : @Model.Items.Take(2).Select(x => x.Price).First()</h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <img class="pic-1" src="@Url.Content(Model.Items.Take(3).Select(x=>x.Image).First())" style="width:100px">
-                </div>
-                <div class="card-body">
-                    <div class="card-content">
-                        <div class="card-title">
-                            <p>
-                                <i onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Phones"})'">
-                                    <a>@Model.Items.Take(3).Select(x => x.NameAr).First()</a>
-                                </i>
-                            </p>
-                        </div>
-                        <div class="card-text">
-                            <h1 class="text-lg-left">السعر : @Model.Items.Take(3).Select(x => x.Price).First()</h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <img class="pic-1" src="@Url.Content(Model.Items.Take(4).Select(x=>x.Image).First())" style="width:100px">
-                </div>
-                <div class="card-body">
-                    <div class="card-content">
-                        <div class="card-title">
-                            <p>
-                                <i onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Phones"})'">
-                                    <a>@Model.Items.Take(4).Select(x => x.NameAr).First()</a>
-                                </i>
-                            </p>
-                        </div>
-                        <div class="card-text">
-                            <h1 class="text-lg-left">السعر : @Model.Items.Take(4).Select(x => x.Price).First()</h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <img class="pic-1" src="@Url.Content(Model.Items.Take(5).Select(x=>x.Image).First())" style="width:100px">
-                </div>
-                <div class="card-body">
-                    <div class="card-content">
-                        <div class="card-title">
-                            <p>
-                                <i onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Phones"})'">
-                                    <a>@Model.Items.Take(5).Select(x => x.NameAr).First()</a>
-                                </i>
-                            </p>
-                        </div>
-                        <div class="card-text">
-                            <h1 class="text-lg-left">السعر : @Model.Items.Take(5).Select(x => x.Price).First()</h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <img class="pic-1" src="@Url.Content(Model.Items.Take(6).Select(x=>x.Image).First())" style="width:100px">
-                </div>
-                <div class="card-body">
-                    <div class="card-content">
-                        <div class="card-title">
-                            <p>
-                                <i onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Phones"})'">
-                                    <a>@Model.Items.Take(6).Select(x => x.NameAr).First()</a>
-                                </i>
-                            </p>
-                        </div>
-                        <div class="card-text">
-                            <h1 class="text-lg-left">السعر : @Model.Items.Take(6).Select(x => x.Price).First()</h1>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-    </div>
-
 </div>

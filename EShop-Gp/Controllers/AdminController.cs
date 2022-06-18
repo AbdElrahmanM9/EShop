@@ -67,7 +67,7 @@ namespace EShop_Gp.Controllers
                         viewmodel.UserName = item.UserName;
                         viewmodel.Email = item.Email;
                         viewmodel.Type = item.Type;
-                        viewmodel.UserPhoneNum = UserMoreDetail != null ? UserMoreDetail.PhoneNumber : item.PhoneNumber;
+                        viewmodel.UserPhoneNum = UserMoreDetail.PhoneNumber;
 
                         viewmodelList.Add(viewmodel);
                     }
