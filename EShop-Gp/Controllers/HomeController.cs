@@ -9,6 +9,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
+using System.Transactions;
 
 namespace EShop_Gp.Controllers
 {
@@ -157,57 +158,9 @@ namespace EShop_Gp.Controllers
                 return new StatusCodeResult((int)HttpStatusCode.BadRequest);
             }
             Slid Slid = new Slid();
-            int Count = 1;
             //var Itemid = _Context.Items.FirstOrDefault(c => c.ProductId == Id);
             var Pro = _Context.Items.Where(x => x.ProductId == Id).Take(7).ToList();
             Slid.ProductId = Id.Value;
-            foreach (var item in Pro)
-            {
-                if (Count == 1)
-                {
-                    Slid.Name1 = item.NameAr;
-                    Slid.Img1 = item.Image;
-                    Slid.Price1 = item.Price;
-                }
-                if (Count == 2)
-                {
-                    Slid.Name2 = item.NameAr;
-                    Slid.Img2 = item.Image;
-                    Slid.Price2 = item.Price;
-                }
-                if (Count == 3)
-                {
-                    Slid.Name3 = item.NameAr;
-                    Slid.Img3 = item.Image;
-                    Slid.Price3 = item.Price;
-                }
-                if (Count == 4)
-                {
-                    Slid.Name4 = item.NameAr;
-                    Slid.Img4 = item.Image;
-                    Slid.Price4 = item.Price;
-                }
-                if (Count == 5)
-                {
-                    Slid.Name5 = item.NameAr;
-                    Slid.Img5 = item.Image;
-                    Slid.Price5 = item.Price;
-                }
-                if (Count == 6)
-                {
-                    Slid.Name6 = item.NameAr;
-                    Slid.Img6 = item.Image;
-                    Slid.Price6 = item.Price;
-                }
-                if (Count == 7)
-                {
-                    Slid.Name7 = item.NameAr;
-                    Slid.Img7 = item.Image;
-                    Slid.Price7 = item.Price;
-                }
-                Count++;
-            }
-
             return PartialView(Slid);
         }
         public ActionResult AddToCart(int id, int ProductId)
@@ -287,6 +240,77 @@ namespace EShop_Gp.Controllers
         }
 
         #region bla7
+        public ActionResult TransactionScope(int id, int ProductId)
+        {
+            using (var tran = new TransactionScope(TransactionScopeOption.RequiresNew,new TransactionOptions { 
+                IsolationLevel=IsolationLevel.ReadCommitted
+            }))
+            {
+                try
+                {
+                    var UserN = User.Identity.Name;
+                    var UserId = _Context.Users.FirstOrDefault(x => x.UserName == UserN);
+                    if (UserId != null)
+                    {
+                        var Item = _Context.Items.FirstOrDefault(x => x.Id == id);
+
+                        Item.AddToCart = Item.AddToCart + 1;
+                        var Cartmaster = _Context.CartMaster.Where(x => x.UserId == UserId.Id && x.IsPaid == false).FirstOrDefault();
+                        CartMaster CartMaster = new CartMaster();
+                        Cart Cart = new Cart();
+
+                        if (Cartmaster == null)
+                        {
+                            CartMaster.IsActive = true;
+                            CartMaster.IsDeleted = false;
+                            CartMaster.OrderTime = DateTime.Now;
+                            CartMaster.UserId = UserId.Id;
+
+                            _Context.CartMaster.Add(CartMaster);
+                            _Context.SaveChanges();
+
+                            Cart.ProductId = ProductId;
+                            Cart.ItemsId = id;
+                            Cart.UserId = UserId.Id;
+                            Cart.AddedTime = DateTime.Now;
+                            Cart.CartMasterId = CartMaster.Id;
+
+                            _Context.Cart.Add(Cart);
+                            _Context.SaveChanges();
+                        }
+                        else
+                        {
+                            Cart.ProductId = ProductId;
+                            Cart.ItemsId = id;
+                            Cart.UserId = UserId.Id;
+                            Cart.AddedTime = DateTime.Now;
+                            Cart.CartMasterId = Cartmaster.Id;
+
+                            _Context.Cart.Add(Cart);
+                            _Context.SaveChanges();
+                        }
+
+
+                        var ItemsModel = new ItemsList
+                        {
+                            Items = _Context.Items.Where(x => x.IsActive == true && x.IsDeleted == false).ToList(),
+                        };
+                        tran.Complete();
+                        return PartialView("_AllItems", ItemsModel);
+                    }
+                    else
+                    {
+                        return RedirectToAction("_LoginToContinueCart", "Cart");
+                    }
+                }
+                catch (Exception e)
+                {
+                    tran.Dispose();
+                    throw;
+                }
+
+            }
+        }
         //public ActionResult _Tvs(string filter)
         //{
         //    var prod = _Context.Products.Where(x => x.NameEn == "Tvs").FirstOrDefault();
