@@ -150,65 +150,11 @@ namespace EShop_Gp.Controllers
 
             return PartialView(ItemList);
         }
-        public ActionResult _slid(int? Id)
+        public ActionResult _slid()
         {
-            if (Id == null)
-            {
-                return new StatusCodeResult((int)HttpStatusCode.BadRequest);
-            }
-            Slid Slid = new Slid();
-            int Count = 1;
-            //var Itemid = _Context.Items.FirstOrDefault(c => c.ProductId == Id);
-            var Pro = _Context.Items.Where(x => x.ProductId == Id).Take(7).ToList();
-            Slid.ProductId = Id.Value;
-            foreach (var item in Pro)
-            {
-                if (Count == 1)
-                {
-                    Slid.Name1 = item.NameAr;
-                    Slid.Img1 = item.Image;
-                    Slid.Price1 = item.Price;
-                }
-                if (Count == 2)
-                {
-                    Slid.Name2 = item.NameAr;
-                    Slid.Img2 = item.Image;
-                    Slid.Price2 = item.Price;
-                }
-                if (Count == 3)
-                {
-                    Slid.Name3 = item.NameAr;
-                    Slid.Img3 = item.Image;
-                    Slid.Price3 = item.Price;
-                }
-                if (Count == 4)
-                {
-                    Slid.Name4 = item.NameAr;
-                    Slid.Img4 = item.Image;
-                    Slid.Price4 = item.Price;
-                }
-                if (Count == 5)
-                {
-                    Slid.Name5 = item.NameAr;
-                    Slid.Img5 = item.Image;
-                    Slid.Price5 = item.Price;
-                }
-                if (Count == 6)
-                {
-                    Slid.Name6 = item.NameAr;
-                    Slid.Img6 = item.Image;
-                    Slid.Price6 = item.Price;
-                }
-                if (Count == 7)
-                {
-                    Slid.Name7 = item.NameAr;
-                    Slid.Img7 = item.Image;
-                    Slid.Price7 = item.Price;
-                }
-                Count++;
-            }
 
-            return PartialView(Slid);
+
+            return PartialView();
         }
         public ActionResult AddToCart(int id, int ProductId)
         {

@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Areas\Identity\Views\**" />
+    <Content Remove="Areas\Identity\Views\**" />
+    <EmbeddedResource Remove="Areas\Identity\Views\**" />
+    <None Remove="Areas\Identity\Views\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Remove="Views\Home\_Accessories.cshtml" />
     <Content Remove="Views\Home\_Cookers.cshtml" />
     <Content Remove="Views\Home\_Heaters.cshtml" />
@@ -27,10 +34,6 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.22" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.22" />
     <PackageReference Include="toastr" Version="2.1.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Areas\Identity\Views\" />
   </ItemGroup>
 
 </Project>
