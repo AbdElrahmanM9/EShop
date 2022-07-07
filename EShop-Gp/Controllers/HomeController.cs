@@ -9,6 +9,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
+using System.Transactions;
 
 namespace EShop_Gp.Controllers
 {
@@ -150,11 +151,17 @@ namespace EShop_Gp.Controllers
 
             return PartialView(ItemList);
         }
-        public ActionResult _slid()
+        public ActionResult _slid(int? Id)
         {
-
-
-            return PartialView();
+            if (Id == null)
+            {
+                return new StatusCodeResult((int)HttpStatusCode.BadRequest);
+            }
+            Slid Slid = new Slid();
+            //var Itemid = _Context.Items.FirstOrDefault(c => c.ProductId == Id);
+            var Pro = _Context.Items.Where(x => x.ProductId == Id).Take(7).ToList();
+            Slid.ProductId = Id.Value;
+            return PartialView(Slid);
         }
         public ActionResult AddToCart(int id, int ProductId)
         {
@@ -233,6 +240,77 @@ namespace EShop_Gp.Controllers
         }
 
         #region bla7
+        public ActionResult TransactionScope(int id, int ProductId)
+        {
+            using (var tran = new TransactionScope(TransactionScopeOption.RequiresNew,new TransactionOptions { 
+                IsolationLevel=IsolationLevel.ReadCommitted
+            }))
+            {
+                try
+                {
+                    var UserN = User.Identity.Name;
+                    var UserId = _Context.Users.FirstOrDefault(x => x.UserName == UserN);
+                    if (UserId != null)
+                    {
+                        var Item = _Context.Items.FirstOrDefault(x => x.Id == id);
+
+                        Item.AddToCart = Item.AddToCart + 1;
+                        var Cartmaster = _Context.CartMaster.Where(x => x.UserId == UserId.Id && x.IsPaid == false).FirstOrDefault();
+                        CartMaster CartMaster = new CartMaster();
+                        Cart Cart = new Cart();
+
+                        if (Cartmaster == null)
+                        {
+                            CartMaster.IsActive = true;
+                            CartMaster.IsDeleted = false;
+                            CartMaster.OrderTime = DateTime.Now;
+                            CartMaster.UserId = UserId.Id;
+
+                            _Context.CartMaster.Add(CartMaster);
+                            _Context.SaveChanges();
+
+                            Cart.ProductId = ProductId;
+                            Cart.ItemsId = id;
+                            Cart.UserId = UserId.Id;
+                            Cart.AddedTime = DateTime.Now;
+                            Cart.CartMasterId = CartMaster.Id;
+
+                            _Context.Cart.Add(Cart);
+                            _Context.SaveChanges();
+                        }
+                        else
+                        {
+                            Cart.ProductId = ProductId;
+                            Cart.ItemsId = id;
+                            Cart.UserId = UserId.Id;
+                            Cart.AddedTime = DateTime.Now;
+                            Cart.CartMasterId = Cartmaster.Id;
+
+                            _Context.Cart.Add(Cart);
+                            _Context.SaveChanges();
+                        }
+
+
+                        var ItemsModel = new ItemsList
+                        {
+                            Items = _Context.Items.Where(x => x.IsActive == true && x.IsDeleted == false).ToList(),
+                        };
+                        tran.Complete();
+                        return PartialView("_AllItems", ItemsModel);
+                    }
+                    else
+                    {
+                        return RedirectToAction("_LoginToContinueCart", "Cart");
+                    }
+                }
+                catch (Exception e)
+                {
+                    tran.Dispose();
+                    throw;
+                }
+
+            }
+        }
         //public ActionResult _Tvs(string filter)
         //{
         //    var prod = _Context.Products.Where(x => x.NameEn == "Tvs").FirstOrDefault();
