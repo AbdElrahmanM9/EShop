@@ -547,3 +547,70 @@ body {
     min-width: 180px;
 }
 /*-----------------------------------------------------------------------Payed---------------------------------------------------------------------------------------*/
+
+.switch-colors li:first-child {
+    background-color: #112538;
+    background: -webkit-linear-gradient(top, #112538, #112538)
+}
+
+.switch-colors li:nth-child(2) {
+    background-color: #079992;
+    background: -webkit-linear-gradient(top, #079992, #079992)
+}
+
+.switch-colors li:nth-child(3) {
+    background-color: #2b4170;
+    background: -webkit-linear-gradient(top, #3b5998, #2b4170)
+}
+
+.switch-colors li:nth-child(4) {
+    background-color: #4caf50;
+    background: -webkit-linear-gradient(top, #4caf50, #4caf50)
+}
+
+.switch-colors li:nth-child(5) {
+    background-color: #213B47;
+    background: -webkit-linear-gradient(top, #213B47, #213B47)
+}
+
+.switch-colors li:nth-child(6) {
+    background-color: #f77062;
+    background: -webkit-linear-gradient(top, #f77062, #f77062)
+}
+.switch-colors li:nth-child(7) {
+    background-color: #ff3547;
+    background: -webkit-linear-gradient(top, #605152, #62595a);
+}
+.switch-colors li:nth-child(8) {
+    background-color: #6f6f6f;
+    background: -webkit-linear-gradient(top, #6f6f6f, #6f6f6f);
+    color: #000
+}
+.color-menu .switch-colors li {
+    width: 33px;
+    height: 30px;
+    display: inline-block;
+    cursor: pointer;
+    border: 4px solid #eee;
+    position: relative;
+    left: 19px;
+    top: 10px;
+    float: left;
+}
+
+.color-menu {
+    background-color: #fff;
+    color: #333;
+    padding: 25px 10px;
+    top: 10%;
+    position: fixed;
+    left: -80px;
+    width: 80px;
+    z-index: 999;
+    box-shadow: 7px 2px 14px 0 rgb(0 0 0 / 14%);
+}
+
+[data-theme='Seventh'] {
+    --maincolor: #e1729e;
+    --mainbackground: #ffe652;
+}

@@ -17,6 +17,29 @@
     <script src="~/js/toast.min.js"></script>
 </head>
 <body>
+    <div class="color-menu">
+        <span class="show">
+            <img class="svg-icon" src="~/Content/assets/svg/001-settings.svg" />
+            @*<i class="fa fa-cog"></i>*@
+            @*<i class="fa fa-cog fa-spin"></i>*@
+
+        </span>
+        <div class="header-theme">
+            <h5 class="text-center">Color</h5>
+            <ul class="switch-colors text-center">
+                <li data-act-class="shadow-outline" data-set-theme="first" class="bg-green-700 focus:outline-none m-1 rounded p-2"></li>
+                <li data-act-class="shadow-outline" data-set-theme="second" class="bg-green-700 focus:outline-none m-1 rounded p-2"></li>
+                <li data-act-class="shadow-outline" data-set-theme="third" class="bg-green-700 focus:outline-none m-1 rounded p-2"></li>
+                <li data-act-class="shadow-outline" data-set-theme="fourth" class="bg-green-700 focus:outline-none m-1 rounded p-2"></li>
+                <li data-act-class="shadow-outline" data-set-theme="fifth" class="bg-green-700 focus:outline-none m-1 rounded p-2"></li>
+                <li data-act-class="shadow-outline" data-set-theme="Sixth" class="bg-green-700 focus:outline-none m-1 rounded p-2"></li>
+                <li data-act-class="shadow-outline" data-set-theme="Seventh" class="bg-green-700 focus:outline-none m-1 rounded p-2"></li>
+                <li data-act-class="shadow-outline" data-set-theme="Eighth" class="bg-green-700 focus:outline-none m-1 rounded p-2"></li>
+                <li data-act-class="shadow-outline" data-set-theme="Ninth" class="bg-green-700 focus:outline-none m-1 rounded p-2"></li>
+            </ul>
+        </div>
+    </div>
+
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow">
             <div class="container">
@@ -27,7 +50,7 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <partial name="_LoginPartial" />
-   
+
                     <form asp-controller="Home" asp-action="Search">
                         <input class="form-control" type="text" name="SearchString" placeholder="Search" />
                     </form>
@@ -42,7 +65,7 @@
 
                                 <li class="dropdown-submenu dropdown">
                                     <a class="dropdown-item" id="dropdown2-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#ee086b">Electronics</a>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdown2-1" >
+                                    <ul class="dropdown-menu" aria-labelledby="dropdown2-1">
                                         <li class="dropdown-item" style="color:#090d83" onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Tvs"})'">TVs</li>
                                         <li class="dropdown-item" style="color:#090d83" onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Laptops"})'">Laps</li>
 
@@ -50,7 +73,7 @@
                                 </li>
                                 <li class="dropdown-submenu dropdown">
                                     <a class="dropdown-item" id="dropdown2-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#ee086b">Household_Appliance</a>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdown2-1" >
+                                    <ul class="dropdown-menu" aria-labelledby="dropdown2-1">
                                         <li class="dropdown-item" style="color:#090d83" onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "refrigerators"})'">Refrigerators</li>
                                         <li class="dropdown-item" style="color:#090d83" onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "washing machines"})'">Washing Machines</li>
                                         <li class="dropdown-item" style="color:#090d83" onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Cookers"})'">Cookers</li>
@@ -58,14 +81,14 @@
                                     </ul>
                                 </li>
                                 <li class="dropdown-item" style="color:#ee086b" onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Phones"})'">Mobile devices</li>
-                                <li class="dropdown-item" style="color:#ee086b"  onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Accessories"})'">Accessories </li>
+                                <li class="dropdown-item" style="color:#ee086b" onclick="location.href='@Url.Action("MoreDetials", "Home" , new {NameEn = "Accessories"})'">Accessories </li>
                             </ul>
                         </li>
-                
+
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="~/Cart/_StatusOrder"  >Account_Balance</a>
+                            <a class="nav-link text-dark" href="~/Cart/_StatusOrder">Account_Balance</a>
                         </li>
-                   
+
                         <li class="nav-item">
                             <a class="nav-link" href="~/Cart/Index">
                                 <i class="fa-solid fa-cart-shopping"></i>
