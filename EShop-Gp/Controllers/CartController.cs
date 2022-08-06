@@ -108,7 +108,7 @@ namespace EShop_Gp.Controllers
                             StatusOrderViewModel.NameAr = item.Items.NameAr;
                             StatusOrderViewModel.NameEn = item.Items.NameEn;
                             StatusOrderViewModel.Price = item.Items.Price;
-                            StatusOrderViewModel.OrderTimeOfReceipt = CartMaster.OrderTime.AddDays(5).ToString("yyyy/MM/dd");
+                            StatusOrderViewModel.OrderTimeOfReceipt = CartMaster.OrderTime.Value.AddDays(5).ToString("yyyy/MM/dd");
                             StatusOrderViewModelList.Add(StatusOrderViewModel);
                         }
                         return PartialView(StatusOrderViewModelList);
